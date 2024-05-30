@@ -32,7 +32,7 @@ class C_mon_espace_offre extends CI_Controller
 		$data['all_data'] 		= $this->m_modele->get_data_liste_offre($code_candidat);
 		$data['title'] 			= 'Liste des ' . $this->nom_elt;
 		$data['breadcrumbs']	= array($this->link_list, $this->nom_elt, @$data['title']);
-
+		// var_dump($data['all_data']);
 		$data['contents']	= 'v_sama_keur_cruds/offre_list';
 		@$this->load->view('template/layout_sama_keur', $data);
 

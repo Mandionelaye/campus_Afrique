@@ -23,7 +23,14 @@ class C_candidatures extends MY_Controller
 	public function index() //AFFICHAGE  de la liste des données
 	{
 		$id_site 			= $this->session->can8_g1qsu_30q9o['id_site'];
-		if ( !empty($this->session->can8_g1qsu_30q9o['idOffre'])) {
+		 
+		 $profil = $this->session->can8_g1qsu_30q9o['profil'];
+		 if($profil == 'Ecole'){
+            $idEcoele 			= $this->session->can8_g1qsu_30q9o['id'];
+		 }else{
+			$idEcoele = null;
+		 }
+		if ( !empty($this->session->can8_g1qsu_30q9o['idOffre'])) {  // {BJ} => pour filter la liste des candidatures
 			$idOffre  = $this->session->can8_g1qsu_30q9o['idOffre'];
 		}else{
 			$idOffre = null;
@@ -33,9 +40,9 @@ class C_candidatures extends MY_Controller
 			'2' =>  'bec',
 			'3' =>  'ANSD',
 		);
+		// demba_debug($id_site);
 		$data['site_name'] 	= $list_site_name[$id_site];
-			 //demba_debug($data['site_name']);
-			 $data['all_data'] 	= $this->m_modele->get_data_liste( $idOffre,$list_site_name[$id_site]); //CHARGER LES DOnnéeS POUR LA LISTe
+			 $data['all_data'] 	= $this->m_modele->get_data_liste( $idOffre,$idEcoele,$list_site_name[$id_site]); //CHARGER LES DOnnéeS POUR LA LISTe
 		//$data['all_dat'] 	= $this->m_modele->get_data_liste($list_site_name[$id_site]); //CHARGER LES DOnnéeS POUR LA LISTe
         $data['dat_form_offre'] 	= $this->gl_bdd->get_data_for_combo("c_offres", "id", "libelle"	, " WHERE `etat`='1'");
 		$data['rdc2_rights'] 	= rdc2_get_auth('params'); //retourne Array ( [add] => [update] => [delete] => [read] => 1 ) 
@@ -260,25 +267,166 @@ class C_candidatures extends MY_Controller
 		@$data['contents']	= 'v_sama_keur/sama_cv';
 		@$this->load->view('template/layout', $data);
 	} //end on function
-
+    
+	// pour un refus candidature
     function rejet(){
 		$args 					= func_get_args();
 		$code_elt 				= $args[0];
-		$rej="elimine";
-		$this->db->set('etat', $rej);
-		$this->db->where('id', $code_elt);
-		$this->db->update('c_candidatures');
-		redirect('liste-candidatures');
+		$rej="refuser";
+		$this->load->helper('security'); //pour controller les failes xss
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$data =  $this->m_modele->get_data_one_elt($code_elt);
+
+		 $fullName = $data['prenom'].' '.$data['nom'];
+		$this->form_validation->set_rules('avis_du_jury' , 'Champ', 'xss_clean|trim');
+		 
+		$data_inser_update = array(
+			'avis_du_jury'=> $this->input->post('avis_du_jury'),
+			'etat'=> $rej,
+		);
+		$query =  $this->m_modele->update_one_s($code_elt, $data_inser_update);
+		if($query){
+			$this->email($data['email'], 'liste-candidatures', $fullName, $data['nomEcole']);
+		}
 
 	}
+	// pour une Acceptation
 	function retenu(){
 		$args 					= func_get_args();
 		$code_elt 				= $args[0];
-		$rej="retenu";
-		$this->db->set('etat', $rej);
-		$this->db->where('id', $code_elt);
-		$this->db->update('c_candidatures');
-		redirect('liste-candidatures');
+		$rej="accepter";
+		$this->load->helper('security'); //pour controller les failes xss
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$data =  $this->m_modele->get_data_one_elt($code_elt);
 
+		 $fullName = $data['prenom'].' '.$data['nom'];
+		$this->form_validation->set_rules('avis_du_jury' , 'Champ', 'xss_clean|trim');
+		 
+		$data_inser_update = array(
+			'avis_du_jury'=> $this->input->post('avis_du_jury'),
+			'etat'=> $rej,
+		);
+		var_dump($data_inser_update);
+		$query =  $this->m_modele->update_one_s($code_elt, $data_inser_update);
+		if($query){
+			$this->email($data['email'], 'liste-candidatures', $fullName, $data['nomEcole']);
+		}
+	}
+
+		// pour une Acceptation en concour
+		function concour(){
+			$args 					= func_get_args();
+			$code_elt 				= $args[0];
+			$rej="concour";
+			$this->load->helper('security'); //pour controller les failes xss
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			$data =  $this->m_modele->get_data_one_elt($code_elt);
+	
+			 $fullName = $data['prenom'].' '.$data['nom'];
+			$this->form_validation->set_rules('avis_du_jury' , 'Champ', 'xss_clean|trim');
+			$this->form_validation->set_rules('date' , 'Champ', 'xss_clean|trim');
+			$this->form_validation->set_rules('heure' , 'Champ', 'xss_clean|trim');
+			 $avis = "Vous êtes admise au concours.<br />".
+			 "Heure:". $this->input->post('heure'). "<br />".
+			 'Date'. $this->input->post('date'). "<br />".
+			 "Description: <br />". $this->input->post("avis_du_jury");
+			$data_inser_update = array(
+				'avis_du_jury'=> $avis,
+				'etat'=> $rej,
+			);
+			var_dump($data_inser_update);
+			$query =  $this->m_modele->update_one_s($code_elt, $data_inser_update);
+			if($query){
+				$this->email($data['email'], 'liste-candidatures', $fullName, $data['nomEcole']);
+			}
+		}
+
+		// pour une Acceptation en concour
+		function test(){
+			$args 					= func_get_args();
+			$code_elt 				= $args[0];
+			$rej="test";
+			$this->load->helper('security'); //pour controller les failes xss
+			$this->load->helper('form');
+			$this->load->library('form_validation');
+			$data =  $this->m_modele->get_data_one_elt($code_elt);
+	
+			 $fullName = $data['prenom'].' '.$data['nom'];
+			$this->form_validation->set_rules('avis_du_jury' , 'Champ', 'xss_clean|trim');
+			$this->form_validation->set_rules('date' , 'Champ', 'xss_clean|trim');
+			$this->form_validation->set_rules('heure' , 'Champ', 'xss_clean|trim');
+			 $avis = "Vous êtes admise au test.\n".
+			 "Heure: ". $this->input->post('heure'). "\n".
+			 'Date: '. $this->input->post('date'). "\n".
+			 "Description: \n". $this->input->post("avis_du_jury");
+			$data_inser_update = array(
+				'avis_du_jury'=> $avis,
+				'etat'=> $rej,
+			);
+			var_dump($data_inser_update);
+			$query =  $this->m_modele->update_one_s($code_elt, $data_inser_update);
+			if($query){
+				$this->email($data['email'], 'liste-candidatures', $fullName, $data['nomEcole']);
+			}
+		}
+	// pour l'envoie d'email
+	function email($email, $redirect, $fullName, $nomEcole){
+        $subject = "Reponse Etablissement";
+					$message="
+						<!DOCTYPE html>
+						<html>
+						<head>
+						<meta charset='UTF-8'>
+						<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+						</head>
+						<body>
+						<center><h1><b>Reponse sur Campus Afrique</b></h1></center><br>
+						<h4>Bonjour $fullName </h4>
+						<p> Vous avez reçu une réponse de votre demande d'admission de la part de $nomEcole. <br />
+						consulter votre compte pour plus de dérails. <br />
+						cordialement,
+						  </p>
+						</body>
+						</html>
+					";
+
+					 $this->load->library('email');
+
+
+						$config = array(
+							'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
+							'smtp_host' => 'mail.proimmosenegal.com',//'server.gouyhost.sn', 
+							'smtp_port' => 465,
+							'smtp_user' => 'campusafrique@proimmosenegal.com',//'infocandidatures@perfplustech.com',
+							'smtp_pass' => 'passer@1234',//'info567Candiatu789',
+							//'smtp_crypto' => 'ssl', //can be 'ssl' or 'tls' for example
+							'mailtype' => 'html', //plaintext 'text' mails or 'html'
+							//'newline' => '\r\n', //in seconds
+							'charset' => 'utf-8',
+							// $config['charset']   = 'utf-8',
+							$config['mailtype']  = 'html',
+							'wordwrap' => TRUE,
+						);
+						$this->email->initialize($config);
+
+
+						
+						$this->email->set_newline("\r\n");
+						$this->email->from('campusafrique@proimmosenegal.com');
+						$this->email->to($email);
+						$this->email->subject($subject);
+						$this->email->message($message);
+						$this->email->attach(base_url('assets/img/presentation.png'));
+
+						if($this->email->send()) 
+						{
+							//$result_add = $this->m_modele->insert_one_element_principal($data_to_insert); //insertion des données code BD
+							redirect($redirect);	
+						}
+						else
+							demba_debug("erreur envoi email");
 	}
 }

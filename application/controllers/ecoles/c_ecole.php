@@ -174,8 +174,8 @@ class C_ecole extends MY_Controller
 		} else{
 			$id = $this->session->can8_g1qsu_30q9o['id'];
 			$num_img     = $this->input->post('logo');
-
-				$photo_name = 'diplome_'.$id.'__'.$num_img;
+			$valueImage = $_FILES['logo']['name']; // {bj} valeur de l'image
+				$photo_name = 'profilEcole_'.$id.'__'.$num_img;
 				$tab_img        = explode('.',$_FILES['logo']['name']);
 				$img_extension  = end($tab_img);
 				$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' , 'pdf' , 'docx');
@@ -202,17 +202,26 @@ class C_ecole extends MY_Controller
 				'etat'	 	=>     $this->input->post('etat'),
 				'lien_site'	 	=>     $this->input->post('lien_site'),
 				'date_lastmotif'		=> date('Y-m-d'),
-
 			);
 
-			if ($num_img && $photo_name != '' && $img_extension != '') {
-				$data_to_update['logo'] = $photo_name . '.' . $img_extension;
+			if ($valueImage && $photo_name != '' ) {
+				$data_to_updata['logo'] = $photo_name . '.' . $img_extension;
 			}
 
 			// var_dump($data_to_updata);
 			$result_add = $this->M_ecole->update($data_to_updata, $id);
 			if ($result_add) //si insertion avec succés on redirige
 			{
+				$fullName = $this->input->post('prenom').' '.$this->input->post('nom');
+				$datas_user = $this->session->can8_g1qsu_30q9o;
+				if ($fullName) {
+				$datas_user['_the_name'] = $fullName;
+				}
+				if ($valueImage && $photo_name != '') {
+				 $datas_user['logo'] = $photo_name.'.'.$img_extension;
+				}
+				//  var_dump($datas_user);
+				 $this->session->set_userdata('can8_g1qsu_30q9o',$datas_user);
 				redirect('profil-buur');
 			}
 		}

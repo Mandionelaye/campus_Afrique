@@ -33,6 +33,7 @@ class C_mon_espace_candidature extends CI_Controller
 		$data['title'] 			= 'Liste de mes ' . $this->nom_elt;
 
 		$data['breadcrumbs']	= array($this->link_list, $this->nom_elt, @$data['title']);
+		// var_dump($data['all_data']);
 		$data['contents']	= 'v_sama_keur_cruds/candidature_liste';
 		$this->load->view('template/layout_sama_keur', $data);
 

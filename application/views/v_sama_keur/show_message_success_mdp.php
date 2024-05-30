@@ -36,7 +36,7 @@
               </div>
 			  
 			<div >
-			<a href="<?php echo site_url('acceder-a-son-espace') ?>" ; >
+			<a href="<?php echo site_url('mon-espace') ?>" ; >
 				<button type="button" class="btn btn-success">Se reconnecter </button>
 			</a>
 			

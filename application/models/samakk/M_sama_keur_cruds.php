@@ -174,11 +174,11 @@ class M_sama_keur_cruds extends  CI_Model
    public function get_data_one_candidature($id_elt)
    {
       return $this->db->select("
-               c.* , o.libelle _offre
-
+               c.* , o.libelle _offre,o.montant_a_payer, e.libelle as nomEcole, e.lien_site, e.email,
                ")
          ->from('c_candidatures c')
          ->join('c_offres AS o', 'c.id_offre=o.id', 'INNER')
+         ->join('ecole AS e', 'e.id=o.idEcole', 'INNER')
          ->where('c.id', $id_elt)
 
          //order
@@ -190,10 +190,11 @@ class M_sama_keur_cruds extends  CI_Model
    {
       return $this->db->select("
          c.id,o.libelle as _the_offer,o.description,c.montant_inscr
-         ,c.date_creation,c.mode_paie,c.etat,c.code_depot         
+         ,c.date_creation,c.mode_paie,c.etat,c.code_depot, o.montant_a_payer, e.libelle as nomEcole         
           ")
          ->from('c_candidatures c')
          ->join('c_offres AS o', 'o.id=c.id_offre', 'INNER')
+         ->join('ecole AS e', 'e.id=o.idEcole', 'INNER')
          ->where('c.code_candidat',$code_candidat)
          ->get()
          ->result();
@@ -209,11 +210,12 @@ class M_sama_keur_cruds extends  CI_Model
       {
          return $this->db->select("
          c.id,c.libelle,c.description,c.text_details,d.commentaires,c.date_publication,c.date_cloture,c.etat
-            ,cand.code_depot
+            ,cand.code_depot, e.libelle as nomEcole, 
              ")
             ->from('c_offres c')
             ->join('c_categorie_des_offres AS d', 'd.id=c.id_categorie', 'INNER')
             ->join('c_candidatures AS cand', 'cand.id_offre=c.id', 'LEFT')
+            ->join('ecole AS e', 'e.id=c.idEcole','INNER') 
             ->get()
             ->result();
    

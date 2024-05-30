@@ -15,11 +15,12 @@ class M_candidature extends  MY_Model
    }
 
 
-   public function get_data_liste( $idOffre ,$id_site='')
+   public function get_data_liste( $idOffre,$idEcole ,$id_site='')
    {
+      // pour le responsable
       if($idOffre){
          return $this->db->select("
-         p.id,p.code_depot, p.montant_inscr, p.mode_paie, p.etat, o.libelle _offre, c.code_candidat, c.prenom, c.nom
+         p.id,p.code_depot, p.montant_inscr, p.cand_niveau_etude, p.mode_paie, p.etat, o.libelle _offre, c.code_candidat, o.montant_a_payer, c.prenom, c.nom
          
          ")
          ->from('c_candidatures p')
@@ -29,9 +30,23 @@ class M_candidature extends  MY_Model
          ->where('p.id_offre', $idOffre)
          ->get()
          ->result();
-      }else{
+      }elseif($idEcole){
+         // pour l'ecole
          return $this->db->select("
-         p.id,p.code_depot, p.montant_inscr, p.mode_paie, p.etat, o.libelle _offre, c.code_candidat, c.prenom, c.nom
+         p.id,p.code_depot, p.montant_inscr, p.mode_paie, p.cand_niveau_etude, p.etat, o.libelle _offre, o.montant_a_payer, c.code_candidat, c.prenom, c.nom
+         
+         ")
+         ->from('c_candidatures p')
+         ->join('c_offres AS o', 'o.id=p.id_offre', 'INNER')
+         ->join('c_candidats AS c', 'c.code_candidat=p.code_candidat', 'INNER')
+		   ->order_by('p.date_creation','DESC')
+         ->where('o.idEcole', $idEcole)
+         ->get()
+         ->result();
+      }else{
+         // pour le supper admin
+         return $this->db->select("
+         p.id,p.code_depot, p.montant_inscr, p.mode_paie, p.cand_niveau_etude, p.etat, o.libelle _offre, o.montant_a_payer, c.code_candidat, c.prenom, c.nom
          
          ")
          ->from('c_candidatures p')
@@ -49,12 +64,13 @@ class M_candidature extends  MY_Model
    public function get_data_one_elt($id_elt)
    {
       return $this->db->select("
-      p.id,p.code_depot, p.montant_inscr, p.mode_paie, p.etat,p.date_creation, o.libelle _offre, c.code_candidat, c.prenom, c.nom , p.montant_justif,
-         c.prenom , c.nom
+      p.id,p.code_depot, p.montant_inscr, p.mode_paie, p.etat,p.date_creation,p.cand_niveau_etude, o.libelle _offre, o.montant_a_payer, c.code_candidat, c.prenom, c.nom , p.montant_justif,
+         c.prenom , c.nom, c.email, e.libelle as nomEcole
           ")
          ->from('c_candidatures p')
          ->join('c_offres AS o', 'o.id=p.id_offre', 'INNER')
          ->join('c_candidats AS c', 'c.code_candidat=p.code_candidat', 'INNER')
+         ->join('ecole AS e', 'e.id=o.idEcole', 'INNER')
          ->where('p.id', $id_elt)
 
          //order
@@ -83,7 +99,13 @@ class M_candidature extends  MY_Model
    {
       //demba_debug($id_val);
       $this->db->where('id', $id_val);
-      return $this->db->update('c_candidatures', $data);
+      $this->db->update('c_candidatures', $data);
+      
+      if($this->db->affected_rows() >= 0){
+         return true;
+     }else{
+         return false;
+     }
    }
 
 

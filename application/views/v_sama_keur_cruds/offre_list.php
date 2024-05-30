@@ -15,6 +15,7 @@
                                     <tr>
 										<th>Libellé</th>
                                         <th>Description</th>
+                                        <th>Etablissement</th>
 										<th>Date clôture</th>
                                         <th>Actions</th>
                                     </tr>
@@ -31,6 +32,7 @@
                                             <tr>
 												<td><?php echo $value->libelle; ?></td>
                                                 <td><?php echo $value->description; ?></td>
+                                                <td><?php echo $value->nomEcole; ?></td>
 												<td><?php echo $value->date_cloture; ?></td>
 												
                                                  <!--td>   

@@ -18,7 +18,7 @@ if (!empty($rdc2_rights['add'])) {
 }
 ?>
 
-<section class="section profile">
+<section class="section profile mb-5">
     <div class="row">
         <div class="col-xl-4">
 
@@ -164,13 +164,12 @@ if (!empty($rdc2_rights['add'])) {
                                         profil</label>
                                     <div class="col-md-8 col-lg-9">
                                         <img src="<?=$date_one_element['logo']?'j0kimpl8ldq/logo/'.$date_one_element['logo']:'assets/img/profile-img.jpg'?>"
-                                            alt="Profile">
+                                        id="img"  alt="Profile">
                                         <div class="pt-2">
                                             <a class="btn btn-primary btn-sm" id="uploadBtn"><i
                                                     class="bi bi-upload"></i>
                                             </a>
-                                            <input type="file" id="loge" accept='image/*' name="logo" hidden
-                                                name="logo" />
+                                            <input type="file" id="loge" accept='image/*' name="logo" hidden />
                                             <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i
                                                     class="bi bi-trash"></i></a>
                                         </div>
@@ -247,13 +246,12 @@ if (!empty($rdc2_rights['add'])) {
                                         profil</label>
                                     <div class="col-md-8 col-lg-9">
                                         <img src="<?=$date_one_element['img_profil']?'j0kimpl8ldq/logo/'.$date_one_element['img_profil']:'assets/img/profile-img.jpg'?>"
-                                            alt="Profile">
+                                          id="img"  alt="Profile">
                                         <div class="pt-2">
                                             <a class="btn btn-primary btn-sm" id="uploadBtn"><i
                                                     class="bi bi-upload"></i>
                                             </a>
-                                            <input type="file" id="loge" accept='image/*' name="logo" hidden
-                                                name="logo" />
+                                            <input type="file" id="loge" accept='image/*' name="logo" hidden />
                                             <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i
                                                     class="bi bi-trash"></i></a>
                                         </div>
@@ -513,6 +511,21 @@ if (!empty($rdc2_rights['add'])) {
 </main>
 
 <script type="text/javascript">
+    function getImageFromInput(inputSelector, imgSelector) {
+    var input = $(inputSelector)[0];
+  
+    if (input.files && input.files[0]) {
+        var reader = new FileReader(); // Création d'un objet FileReader
+        reader.onload = function (e) {
+            var imageSrc = e.target.result; // Obtention de l'URL de l'image
+            // var image = imageSrc;
+            $(imgSelector).attr('src', imageSrc);
+            console.log("Image récupérée :", imageSrc);
+            
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 $(document).ready(function() {
 
     $(document).on("click", ".btn_delete", function() {
@@ -523,7 +536,9 @@ $(document).ready(function() {
     $("#uploadBtn").click(function() {
         $("#loge").click();
     });
-
+    $('#loge').change(function () {
+        getImageFromInput('#loge','#img');
+    });
     $(".btn-primary").click(function() {
         var id = $(".hiddenid").val();
 

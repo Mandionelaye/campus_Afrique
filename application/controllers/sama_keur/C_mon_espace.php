@@ -147,7 +147,8 @@ class C_mon_espace extends CI_Controller
 		} else{
 			$id = $this->session->samay_mbiir['can8_g1qsu_30q9o']['thiaby'];
 			$num_img     = $this->input->post('logo');
-			$photo_name = 'diplome_'.$id.'__'.$num_img;
+			$valueImage = $_FILES['logo']['name']; // {bj} valeur de l'image
+			$photo_name = 'profile_'.$id.'__'.$num_img;
 			$tab_img        = explode('.',$_FILES['logo']['name']);
 			$img_extension  = end($tab_img);
 			$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' , 'pdf' , 'docx');
@@ -163,7 +164,7 @@ class C_mon_espace extends CI_Controller
 				// var_dump( $photo_name.'.'.$img_extension);
 				echo $photo_name.'.'.$img_extension;
 			}
-			}
+		}
 			$data_to_updata 	= array(
 				'nom'		    => $this->input->post('nom'),
 				'prenom'		=> $this->input->post('prenom'),
@@ -173,18 +174,28 @@ class C_mon_espace extends CI_Controller
 				'date_last_modif'		=> date('Y-m-d'),
 
 			);
-			if ($num_img && $photo_name != '' && $img_extension != '') {
-				$data_to_update['img_profil'] = $photo_name . '.' . $img_extension;
+	
+			if ($valueImage && $photo_name != '') {
+				$data_to_updata['img_profil'] = $photo_name.'.'.$img_extension;
+				// var_dump($data_to_updata);
 			}
-			var_dump($data_to_updata);
 			$result_add = $this->mm_modele->update($data_to_updata, $id);
 			if ($result_add) //si insertion avec succés on redirige
 			{
 				$fullName = $this->input->post('prenom').' '.$this->input->post('nom');
-				var_dump($fullName);
-				$this->session->samay_mbiir['can8_g1qsu_30q9o']['_the_name'] = $fullName;
-				 $this->session->samay_mbiir['can8_g1qsu_30q9o']['logo'] = $photo_name.'.'.$img_extension;
-				redirect('mon-profil');
+				$datas_user = array(
+					'can8_g1qsu_30q9o'=>  $this->session->samay_mbiir['can8_g1qsu_30q9o'],
+				);
+                // $dataUser = $this->session->samay_mbiir['can8_g1qsu_30q9o'];
+				if($fullName){
+					$datas_user['can8_g1qsu_30q9o']['_the_name'] = $fullName;
+				}
+				if($valueImage && $photo_name != ''){
+					$datas_user['can8_g1qsu_30q9o']['logo'] = $photo_name.'.'.$img_extension;
+				}
+				 var_dump($datas_user['can8_g1qsu_30q9o']);
+				 $this->session->set_userdata('samay_mbiir',$datas_user);
+				 redirect('mon-profil');
 			}
 		}
 	}
@@ -234,7 +245,38 @@ class C_mon_espace extends CI_Controller
 		//demba_debug($connexions_item);
 		return $datas_user;
 	}
-
+  
+	// {BJ} pour le candidat
+	private function get_user_Candidat($login, $mdp,$ien)
+	{
+		
+		$datas_user = null;
+		$connexion_items = $this->m_modele->identification_ok($login, $mdp);
+		if(empty($connexion_items))
+		{
+			header("Location:".site_url('erreur-connexion-login'));
+			return;
+		}
+		else
+		{
+			//demba_debug($connexion_items);
+			if ($connexion_items != null)
+				$datas_user = array(
+					'can8_g1qsu_30q9o'=> array(
+						'logo'           => $connexion_items['img_profil'],
+						'thiaby'			=> $connexion_items['id'],
+						'email'			=> $connexion_items['email'],
+						'etat'			=> $connexion_items['etat'],
+						'code_elt'		=> $connexion_items['code_candidat'],
+						'_the_name'		=> $connexion_items['_the_name'],
+						'token'			=> $connexion_items['etat'],
+						'ip'			=> $_SERVER['REMOTE_ADDR'],
+						'logged_in' 		=> TRUE
+					 )
+				);
+		}
+		return $datas_user;
+	}
 	public function show_message_error_mdp()
 	{
 		$data = array();
@@ -261,8 +303,8 @@ class C_mon_espace extends CI_Controller
 		demba_debug($datas_user);
 		if(empty($datas_user))
 		{
-			header("Location:".site_url()."erreur-change-mdp?erreur=login&text=error_log");
-			return;
+			return header("Location:".site_url()."erreur-change-mdp?erreur=login&text=error_log");
+			;
 		}
 		else
 		{
@@ -280,7 +322,43 @@ class C_mon_espace extends CI_Controller
 			$this->session->set_userdata('userdata',null);
 			$this->session->set_userdata('samay_mbiir',$datas_user);
 			header("Location:".site_url("success-change-mdp"));
+			// header("Location:".site_url("mon-profil"));
 			return;
+
+		}
+		
+	}
+
+	// pour modifier son mots de passe pour le candidat
+	function verif_wethio_thiabi1() 
+	{
+		$login = $this->session->email_ok;
+		$pass = $this->input->post('password');
+		//$ien = $this->input->post('ien');
+		$ien = null;
+		$datas_user = $this->get_user_Candidat($login,$pass, $ien);
+		if(empty($datas_user))
+		{
+			return header("Location:".site_url()."erreur-change-mdp?erreur=login&text=error_log");
+			;
+		}
+		else
+		{
+			$new_pass= $this->input->post('new_password');
+
+			$data_insert = array(
+				'dialoukay'=> $new_pass,
+			);
+			//$data_to_insert1 = array(
+				//	'mot_de_passe'=> $new_pass,
+				//);
+				$result_add = $this->conn->update_thiaby_si_c_candidats($login, $data_insert); //insertion des données code BD
+				//$result_add = $this->conn->update_thiaby_si_sys($login, $data_to_insert1); //insertion des données code BD
+				var_dump($data_insert);
+
+			$this->session->set_userdata('userdata',null);
+			$this->session->set_userdata('samay_mbiir',$datas_user);
+			return header("Location:".site_url("success-change-mdp"));
 
 		}
 		

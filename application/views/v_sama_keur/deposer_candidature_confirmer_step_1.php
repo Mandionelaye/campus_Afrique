@@ -9,7 +9,7 @@
 <div class="card" align='center'>
 	<div class="card-body">
 	  <h5 class="card-title">
-			Confirmez vous le dépot de votre candidature à l'offre?<br />
+			Confirmez vous le dépot de votre candidature à l'offre pédagogie?<br />
 			Cette action sera irreversible!!!
 		</h5>
 

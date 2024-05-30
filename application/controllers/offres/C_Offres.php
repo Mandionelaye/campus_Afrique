@@ -69,6 +69,7 @@ class C_Offres extends MY_Controller
 		//definition des champs a controller
 		$this->form_validation->set_rules('id_categorie'	, 'Champ', 'required|xss_clean|trim');
 		$this->form_validation->set_rules('libelle'			, 'Champ', 'required|xss_clean|trim');
+		$this->form_validation->set_rules('montant_a_payer'			, 'Champ', 'required|xss_clean|trim');
 		$this->form_validation->set_rules('description'		, 'Champ', 'required|xss_clean|trim');
 		$this->form_validation->set_rules('text_details'	, 'Champ', 'xss_clean|trim');
 		//$this->form_validation->set_rules('img_1'			, 'Champ', 'xss_clean|trim');  //peux généré un bug sans message
@@ -99,6 +100,7 @@ class C_Offres extends MY_Controller
 
 					'id_categorie' 		=> $this->input->post('id_categorie'),
 					'libelle'		 	=> $this->input->post('libelle'),
+					'montant_a_payer'		 	=> $this->input->post('montant_a_payer'),
 					'description'	 	=> $this->input->post('description'),
 					'text_details' 		=> $this->input->post('text_details'),
 					//'img_1'		 	=> $this->input->post('img_1'),

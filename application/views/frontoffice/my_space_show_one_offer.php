@@ -1,12 +1,15 @@
 <?php show_breadcrumbs($breadcrumbs);   ?>
-<section class="section profile">
+<section class="section profile mb-5">
       <div class="row">
         <div class="col-xl-5">
 
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
+              <?php if($date_one_element['logo']){ ?>
+              <img src="j0kimpl8ldq/logo/<?=$date_one_element['logo'] ?>" alt="Profile" class="rounded-circle">
+                <?php }else{ ?>
               <img src="assets/img/logo_dil.png" alt="Profile" class="rounded-circle">
+              <?php } ?>
               <h2><?php echo $date_one_element['libelle'] ?></h2>
               <p>&nbsp;</p>
 <?php
@@ -99,7 +102,7 @@
                   <h5 class="card-title">Profile Details</h5>
 
                   <div class="row">
-                    <div class="col-lg-5 col-md-4 label ">Date lancement</div>
+                    <div class="col-lg-5 col-md-4 label ">Date d'ouverture</div>
                     <div class="col-lg-7 col-md-8"><?php echo $date_one_element['date_publication'] ?></div>
                   </div>
 
@@ -109,28 +112,30 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-5 col-md-4 label">Conditions à remplir</div>
-                    <div class="col-lg-7 col-md-8">...</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-5 col-md-4 label">Débouchés</div>
-                    <div class="col-lg-7 col-md-8">...</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-5 col-md-4 label">Durée de la formation</div>
-                    <div class="col-lg-7 col-md-8">...</div>
-                  </div>
-
-                  <div class="row">
                     <div class="col-lg-5 col-md-4 label">Modalité de la formation</div>
-                    <div class="col-lg-7 col-md-8">...</div>
+                    <div class="col-lg-7 col-md-8"><?php echo $date_one_element['montant_a_payer'] ?> FCFA</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-5 col-md-4 label">Etablissement</div>
+                    <div class="col-lg-7 col-md-8"><?php echo $date_one_element['nomEcole'] ?></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-5 col-md-4 label">Site Web</div>
+                    <div class="col-lg-7 col-md-8">
+                      <a href="<?php echo $date_one_element['lien_site'] ?>"><?php echo $date_one_element['lien_site'] ?></a>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-5 col-md-4 label">Adresse</div>
+                    <div class="col-lg-7 col-md-8"><?php echo $date_one_element['adresse'] ?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-5 col-md-4 label">Email de contact</div>
-                    <div class="col-lg-7 col-md-8">perfakademy@gmail.com</div>
+                    <div class="col-lg-7 col-md-8"><?php echo $date_one_element['email'] ?></div>
                   </div>
 
                 </div>
@@ -144,7 +149,7 @@
         </div>
       </div>
     </section>
-            </main><?php show_breadcrumbs($breadcrumbs);   ?>
+            <!-- </main><?php show_breadcrumbs($breadcrumbs);   ?>
 <section class="section profile">
       <div class="row">
         <div class="col-xl-5">
@@ -224,7 +229,7 @@
 
           <div class="card">
             <div class="card-body pt-3">
-              <!-- Bordered Tabs -->
+              Bordered Tabs
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
@@ -282,7 +287,7 @@
                 </div>
 
 
-              </div><!-- End Bordered Tabs -->
+              </div>End Bordered Tabs
 
             </div>
           </div>
@@ -290,4 +295,4 @@
         </div>
       </div>
     </section>
-            </main>
+            </main> -->

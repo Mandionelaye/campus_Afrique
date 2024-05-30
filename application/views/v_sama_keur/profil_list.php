@@ -18,7 +18,7 @@ if (!empty($rdc2_rights['add'])) {
 }
 ?>
 
-<section class="section profile">
+<section class="section profile mb-5">
     <div class="row">
         <div class="col-xl-4">
 
@@ -145,7 +145,7 @@ if (!empty($rdc2_rights['add'])) {
                                                     class="bi bi-upload"></i>
                                             </a>
                                             <input type="file" id="loge" accept='image/*' name="logo" hidden
-                                                name="logo" />
+/>
                                             <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i
                                                     class="bi bi-trash"></i></a>
                                         </div>
@@ -242,7 +242,7 @@ if (!empty($rdc2_rights['add'])) {
                         <div class="tab-pane fade pt-3" id="profile-change-password">
                             <!-- Change Password Form -->
                             <form id="sign_in" method="POST" class="row g-3 needs-validation"
-                                action="verif-wethio-thiabi" novalidate>
+                                action="verif-wethio-thiabi1" novalidate>
 
                                 <div class="col-12">
                                     <label for="yourPassword" class="form-label">Mot de passe Actuel</label>

@@ -8,7 +8,7 @@
 ?>
     <div class='row'>
         <div class='col-sm-12' style='margin-bottom: 30px'>
-            <a href="<?php echo site_url('ajouter-candidature');  ?>">
+            <a href="<?php echo site_url('candidat-liste-des-offres');  ?>">
                 <button style="background-color: #012970; color:white" id='btn_add' class='btn' type='button' id='btn_add' class='btn btn-info'>Nouveau <span class='m-l-5'><i class='fa fa-plus-square'></i></span></button>
             </a>
         </div>
@@ -53,7 +53,7 @@
                                         <th>Code Depot</th>
                                         <th>Offre</th>
                                         <th>Montant Inscription</th>
-                                        <th>Mode paiement</th>
+                                        <th>Etablissement</th>
                                         <th>Date création</th>
                                         <th>Statut</th>
                                         <!--th>Action</th-->
@@ -71,24 +71,23 @@
                             
                                                 <td><?php echo $value->code_depot; ?></td>
                                                 <td><?php echo $value->_the_offer; ?></td>
-                                                <td><?php echo formatter_montant($value->montant_inscr).' FCFA'; ?></td>
-                                                <td><?php echo $value->mode_paie; ?></td>
+                                                <td><?php echo $value->montant_a_payer? formatter_montant($value->montant_a_payer).' FCFA': '...'; ?></td>
+                                                <td><?php echo $value->nomEcole; ?></td>
                                                 <td><?php echo $value->date_creation; ?></td>
                                                 
                                                  <td>   
                                                     <a href="<?php echo site_url('params-details-ma-candidature/' . $value->id);  ?>" class='on-default btn_edit' id='<?php echo $value->id; ?>'>
                                                     <?php
 								if ($value->etat == 'depot_en_cours') {
-
 									echo "<span class='badge' style='background-color:blue'> &nbsp &nbsp  Depot en cours &nbsp &nbsp </span>";
-								} else if ($value->etat == 'commission_en_cours') {
-									echo "<span class='badge bg-primary'> &nbsp  Commission en cours &nbsp </span>";}
-									else if ($value->etat == 'retenu') {
-										echo "<span class='badge bg-success'> &nbsp  Retenu &nbsp </span>";}
-										else if ($value->etat == 'liste_attente') {
-											echo "<span class='badge bg-primary'> &nbsp  En liste attente &nbsp </span>";}
-											else if ($value->etat == 'elimine') {
-												echo "<span class='badge bg-danger'> &nbsp  Eliminé &nbsp </span>";}
+								} else if ($value->etat == 'concour') {
+									echo "<span class='badge bg-info'> &nbsp  Concours d'admission &nbsp </span>";}
+									else if ($value->etat == 'accepter') {
+										echo "<span class='badge bg-success'> &nbsp  Accepter &nbsp </span>";}
+										else if ($value->etat == 'test') {
+											echo "<span class='badge bg-primary'> &nbsp  Test d'admission &nbsp </span>";}
+											else if ($value->etat == 'refuser') {
+												echo "<span class='badge bg-danger'> &nbsp  Refuser &nbsp </span>";}
 												else {
 													echo "<span class='badge' style='background-color:orange'> &nbsp  Cloturé &nbsp </span>";}
 																		

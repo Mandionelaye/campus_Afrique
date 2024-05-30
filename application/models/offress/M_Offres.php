@@ -46,9 +46,10 @@ class M_Offres extends  MY_Model
    {
       return $this->db->select("
                p.id,c.libelle _categ_offre ,p.id_categorie,p.libelle, p.description,p.date_publication,p.date_cloture, p.img_1, p.etat,  
-             p.text_details ")
+             p.text_details, p.montant_a_payer, e.libelle as nomEcole, e.logo, e.email, e.adresse, e.lien_site, ")
          ->from('c_offres p')
          ->join('c_categorie_des_offres AS c', 'c.id=p.id_categorie', 'INNER')
+         ->join('ecole AS e', 'e.id=p.idEcole', 'INNER')
          ->where('p.id', $id_elt)
 
          //order

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 25 mai 2024 à 20:33
+-- Généré le : jeu. 30 mai 2024 à 18:07
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.2
 
@@ -51,13 +51,14 @@ CREATE TABLE `c_candidats` (
 --
 
 INSERT INTO `c_candidats` (`id`, `code_candidat`, `prenom`, `nom`, `sexe`, `telephone`, `email`, `dialoukay`, `date_naiss`, `lieu_naiss`, `date_creation`, `id_op_saisie`, `ip`, `etat`, `date_last_modif`, `img_profil`) VALUES
-(6, 'NU00000081', 'Seydina Mandione', 'Mbaye', 'Masc', NULL, 'seydina@gmail.com', 'passeraz', NULL, NULL, '2023-07-10', NULL, NULL, 1, '2024-05-22 00:00:00', 'diplome_6__.png'),
+(6, 'NU00000081', 'Seydina Mandione', 'Mbaye', 'Masc', '221770938816', 'mandionelaye27@gmail.com', 'passe', NULL, NULL, '2023-07-10', NULL, NULL, 1, '2024-05-28 00:00:00', 'profile_6__.png'),
 (25, 'NI00000082', 'baye demba1', 'diack2', 'Masc', NULL, 'com.perfplus@gmail.com', 'passer123', NULL, NULL, '2023-08-03', NULL, NULL, 0, '2023-08-03 11:16:53', ''),
 (27, 'NI00000083', 'Augustin', 'Ndiaye', 'Masc', NULL, 'ndiayeaugustin18@gmail.com', 'augusTIN18', NULL, NULL, '2023-08-03', NULL, '::1', 0, '2023-08-03 12:40:59', ''),
 (29, 'BT00000085', 'Astou', 'faye', 'Fem', NULL, 'astouFaye@gmail.com', 'passe', NULL, NULL, '2024-05-07', 2, '::1', 0, '2024-05-07 00:42:29', ''),
 (30, 'BT00000086', 'adama', 'diagne', 'Fem', NULL, 'adamalayediagne05@gmail.com', 'passe', NULL, NULL, '2024-05-07', 2, '::1', 0, '2024-05-07 00:49:10', ''),
 (35, 'BT00000088', 'Baye', 'Demba', 'Masc', '779862676', 'bayedemba@gmail.com', 'passeraz', NULL, NULL, '2024-05-22', 2, '::1', 1, '2024-05-22 00:00:00', ''),
-(37, 'BT00000089', 'Buur', 'Joie', 'Masc', NULL, 'mandionelay99@gmail.com', 'passer', NULL, NULL, '2024-05-25', 2, '::1', 0, '2024-05-25 17:13:17', '');
+(37, 'BT00000089', 'Buur', 'Joie', 'Masc', NULL, 'mandionelay99@gmail.com', 'passer', NULL, NULL, '2024-05-25', 2, '::1', 0, '2024-05-25 17:13:17', ''),
+(38, 'BT00000090', 'Malamine', 'Sane', 'Masc', NULL, 'epsilonedabax@gmail.com', 'passe', NULL, NULL, '2024-05-26', 2, '::1', 0, '2024-05-25 22:14:05', '');
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,8 @@ CREATE TABLE `c_candidats_details` (
 --
 
 INSERT INTO `c_candidats_details` (`id`, `code_candidat`, `email`, `tel_2`, `email_2`, `adresse`, `cni`, `cni_img`, `passport`, `passport_img`, `extrait_naissance`, `extrait_img`, `photo`, `cand_niveau_etude`, `cand_experiences`, `date_last_modif`) VALUES
-(0, 'NU00000081', 'bayedemba@gmail.com', '776126031', 'aaaaa', 'dsqd', 'dsq', NULL, 'dsqd', NULL, 'dsq', NULL, NULL, 'Bac+5', 4, '2023-08-01 09:34:20');
+(0, 'NU00000081', 'bayedemba@gmail.com', '776126031', 'aaaaa', 'dsqd', 'dsq', NULL, 'dsqd', NULL, 'dsq', NULL, NULL, 'Bac+5', 4, '2023-08-01 09:34:20'),
+(3, 'BT00000088', '', '', '', 'Dakar', '2762200100274', NULL, '', NULL, '', NULL, 'piece__BT00000088__.jpg', 'Bac+3', 4, '2024-05-25 21:37:28');
 
 -- --------------------------------------------------------
 
@@ -119,7 +121,8 @@ INSERT INTO `c_candidats_diplomes` (`id`, `code_candidat`, `id_type_diplome`, `l
 (4, 'NU00000084', 2, '', '2023', NULL, NULL, '2023-04-18', '1', 12, '2023-07-11 09:38:06'),
 (11, 'NU00000081', 2, 'kjdsamd udbd', 'dkqn', 'idan', NULL, '2023-07-14', '1', 0, '2023-07-14 18:37:41'),
 (15, 'NU00000081', 2, 'PAIEMENT  6e REG', '2012', 'UGB', NULL, '2023-07-18', '1', 0, '2023-07-18 17:38:28'),
-(17, 'NU00000081', 2, '111', '111', '11', 'diplome__NU00000081__17.jpg', '2023-07-18', '1', 0, '2023-07-18 17:38:57');
+(17, 'NU00000081', 2, '111', '111', '11', 'diplome__NU00000081__17.jpg', '2023-07-18', '1', 0, '2023-07-18 17:38:57'),
+(18, 'BT00000088', 2, 'Transport logistique', '2021', 'UNCHK', 'diplome__BT00000088__18.pdf', '2024-05-25', '1', 0, '2024-05-25 21:38:20');
 
 -- --------------------------------------------------------
 
@@ -150,7 +153,8 @@ INSERT INTO `c_candidats_experiences` (`id`, `code_candidat`, `id_type_exp`, `li
 (2, 'NU00000081', 2, 'STAGE A L\'ange du sénégal et de la sous rgiéon', '2012-12-01', '2012-12-12', 'ANSD', NULL, '2022-10-12', '1', 2, '2023-07-14 18:45:13'),
 (3, 'NU00000084', 1, 'stage a l\'ard e d saint -louis', '2022-10-12', '2022-01-01', 'Agence Nationale de la statistique etd e e=la de demdnn', NULL, '2022-10-12', '1', 3, '2023-07-14 18:45:13'),
 (5, 'NU00000081', 2, 'PAIEMENT  6e REG', '2023-06-29', '2023-07-22', NULL, NULL, '2023-07-18', '1', 0, '2023-07-18 17:38:16'),
-(6, 'NU00000081', 2, 'x&lt;wxw', '2023-06-27', '2023-07-08', NULL, NULL, '2023-07-24', '1', 0, '2023-07-24 20:29:54');
+(6, 'NU00000081', 2, 'x&lt;wxw', '2023-06-27', '2023-07-08', NULL, NULL, '2023-07-24', '1', 0, '2023-07-24 20:29:54'),
+(7, 'BT00000088', 2, 'Informatique de gestion', '2024-05-17', '2024-06-07', NULL, NULL, '2024-05-25', '1', 0, '2024-05-25 21:42:13');
 
 -- --------------------------------------------------------
 
@@ -181,7 +185,8 @@ INSERT INTO `c_candidats_langues` (`id`, `code_candidat`, `id_langue`, `commenta
 (7, 'NU00000081', 1, 'FDSF', 'debutant', '1', '1', '0', '2023-07-14', '1', 2, '2023-07-14 08:52:01'),
 (8, 'NU00000084', 2, 'EZE', 'debutant', '0', '0', '0', '2023-07-18', '1', 3, '2023-07-14 08:52:01'),
 (10, 'NU00000081', 4, 'DDD', 'moyen', '0', '0', '0', '2023-04-18', '1', 2, '2023-07-14 09:48:56'),
-(12, 'NU00000081', 2, 'test comme', 'debutant', '1', '1', '1', '2023-07-25', '1', 0, '2023-07-25 17:59:22');
+(12, 'NU00000081', 2, 'test comme', 'debutant', '1', '1', '1', '2023-07-25', '1', 0, '2023-07-25 17:59:22'),
+(13, 'BT00000088', 1, 'oui', '', '1', '1', '1', '2024-05-25', '1', 0, '2024-05-25 21:42:39');
 
 -- --------------------------------------------------------
 
@@ -213,7 +218,8 @@ CREATE TABLE `c_candidatures` (
   `can_langue_3` bigint(20) DEFAULT NULL,
   `date_creation` date NOT NULL,
   `ip` varchar(16) NOT NULL,
-  `etat` enum('0','1') NOT NULL DEFAULT '0',
+  `etat` enum('depot_en_cours','concour','accepter','test','refuser') NOT NULL,
+  `avis_du_jury` varchar(255) NOT NULL,
   `id_op_saisie` int(11) NOT NULL,
   `date_last_modif` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -222,14 +228,19 @@ CREATE TABLE `c_candidatures` (
 -- Déchargement des données de la table `c_candidatures`
 --
 
-INSERT INTO `c_candidatures` (`id`, `code_candidat`, `id_offre`, `code_depot`, `montant_inscr`, `montant_justif`, `mode_paie`, `cand_niveau_etude`, `cand_experiences`, `can_experience_1`, `can_experience_2`, `can_experience_3`, `can_experience_1_periode`, `can_experience_2_periode`, `can_experience_3_periode`, `can_diplome_1`, `can_diplome_2`, `can_diplome_3`, `can_langue_1`, `can_langue_2`, `can_langue_3`, `date_creation`, `ip`, `etat`, `id_op_saisie`, `date_last_modif`) VALUES
-(2, 'NU00000081', 1, 'azert', 323829, '392020', 'espece', 'Bac+1', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2022-10-12', '12.123.134.13', '0', 2, '2023-07-14 16:39:38'),
-(3, 'NU00000081', 2, '4328JFS', 200000, '36474884', 'cheque', 'aucun', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2022-10-12', '12.123.134.13', '1', 1, '2023-07-14 18:01:50'),
-(4, 'NU00000084', 2, 'FDJSF84832', 320000, '530000', 'cheque', 'aucun', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2023-04-18', '133.373.38.37', '0', 3, '2023-07-14 18:01:50'),
-(5, 'NU00000081', 1, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, '0', '0', '0', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2023-08-02', '', '', 0, '2023-08-02 12:37:54'),
-(6, 'NU00000081', 5, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2023-08-02', '', '0', 0, '2023-08-02 12:40:50'),
-(7, 'NU00000081', 5, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2023-08-02', '', '0', 0, '2023-08-02 16:27:35'),
-(8, 'NU00000081', 8, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2024-05-17', '', '', 0, '2024-05-17 15:55:55');
+INSERT INTO `c_candidatures` (`id`, `code_candidat`, `id_offre`, `code_depot`, `montant_inscr`, `montant_justif`, `mode_paie`, `cand_niveau_etude`, `cand_experiences`, `can_experience_1`, `can_experience_2`, `can_experience_3`, `can_experience_1_periode`, `can_experience_2_periode`, `can_experience_3_periode`, `can_diplome_1`, `can_diplome_2`, `can_diplome_3`, `can_langue_1`, `can_langue_2`, `can_langue_3`, `date_creation`, `ip`, `etat`, `avis_du_jury`, `id_op_saisie`, `date_last_modif`) VALUES
+(2, 'NU00000081', 1, 'azert', 323829, '392020', 'espece', 'Bac+1', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2022-10-12', '12.123.134.13', 'depot_en_cours', '', 2, '2023-07-14 16:39:38'),
+(3, 'NU00000081', 2, '4328JFS', 200000, '36474884', 'cheque', 'aucun', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2022-10-12', '12.123.134.13', 'depot_en_cours', '', 1, '2023-07-14 18:01:50'),
+(4, 'NU00000084', 2, 'FDJSF84832', 320000, '530000', 'cheque', 'aucun', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2023-04-18', '133.373.38.37', 'depot_en_cours', '', 3, '2023-07-14 18:01:50'),
+(5, 'NU00000081', 1, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, '0', '0', '0', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2023-08-02', '', 'depot_en_cours', '', 2, '2023-08-02 12:37:54'),
+(6, 'NU00000081', 5, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2023-08-02', '', 'depot_en_cours', '', 2, '2023-08-02 12:40:50'),
+(7, 'NU00000081', 5, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2023-08-02', '', 'depot_en_cours', '', 2, '2023-08-02 16:27:35'),
+(8, 'NU00000081', 8, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2024-05-17', '', 'test', 'Vous êtes admise au test.\nHeure: 10:00\nDate: 2024-06-03\nDescription: \nLe test consiste à tester vos compétences et à voir si vous pouvez intégrer notre formation.\n\nPièce à fournir : CIN, passeport.', 2, '2024-05-17 15:55:55'),
+(9, 'BT00000088', 12, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+3', 4, 'Informatique de gestion', NULL, NULL, '2024-05-17--2024-06-07', '--', '--', 0, NULL, NULL, 0, NULL, NULL, '2024-05-25', '', 'concour', 'Vous êtes admise au concours.\nHeure:10:30\nDate2024-06-07\nDescription: \nLe concours consiste à voir vos compétences et à voir si vous pouvez intégrer notre formation.\r\n\r\nPièce à fournir : CIN, passeport.', 2, '2024-05-25 21:43:01'),
+(10, 'BT00000088', 14, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+3', 4, 'Informatique de gestion', NULL, NULL, '2024-05-17--2024-06-07', '--', '--', 0, NULL, NULL, 0, NULL, NULL, '2024-05-25', '', 'accepter', 'Vous avez de bonne note c\'est pour quoi on vous accepte', 2, '2024-05-25 21:43:26'),
+(11, 'NU00000081', 12, 'ADYNAMISER', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2024-05-28', '', 'accepter', 'J\'ai le plaisir de vous informer que votre demande de candidature est acceptée', 2, '2024-05-28 14:11:46'),
+(14, 'NU00000081', 6, 'ADYNAM699', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2024-05-28', '', 'accepter', '', 2, '2024-05-28 16:34:44'),
+(15, 'NU00000081', 15, 'ADYNAM347', NULL, NULL, NULL, 'Bac+5', 4, 'STAGE A L\'ange du sénégal et de la sous rgiéon', 'PAIEMENT  6e REG', 'x&lt;wxw', '2012-12-01--2012-12-12', '2023-06-29--2023-07-22', '2023-06-27--2023-07-08', 0, NULL, NULL, 0, NULL, NULL, '2024-05-28', '', 'depot_en_cours', '', 2, '2024-05-28 18:03:36');
 
 -- --------------------------------------------------------
 
@@ -286,15 +297,15 @@ CREATE TABLE `c_offres` (
 --
 
 INSERT INTO `c_offres` (`id`, `id_categorie`, `libelle`, `description`, `text_details`, `img_1`, `date_publication`, `date_cloture`, `conditions_a_remplir`, `debouches`, `modalites_de_formation`, `montant_a_payer`, `date_creation`, `etat`, `id_op_saisie`, `date_last_modif`, `idEcole`) VALUES
-(2, 1, 'Concours formation des Techniciens', 'Concours formation des Techniciens', 'Concours formation des Techniciens', NULL, '2023-06-04', '2000-01-01', NULL, NULL, NULL, NULL, '2023-06-27', '0', 1, '2023-06-12 17:59:04', 2),
 (3, 2, 'Formation qualifiante développeur web en 3 mois depuis le début', 'Cette formation permet aux participants d\'être autonome en tant que développeur et web master ', 'Formation qualifiante développeur web en 3 mois depuis le début', NULL, '2023-06-01', '2023-07-31', NULL, NULL, NULL, NULL, '2023-06-12', '1', 2, '2023-06-12 22:40:06', 1),
 (5, 1, 'test master 2 secruitét web', 'test master 2 secruitét webtest master 2 secruitét web', 'test master 2 secruitét webtest master 2 secruitét webtest master 2 secruitét web', NULL, '2023-07-06', '2023-08-06', NULL, NULL, NULL, NULL, '2023-07-10', '1', 2, '2023-07-10 22:29:28', 4),
-(6, 1, 'Institut polytechnique des Métiers', 'naahgdgud', 'zuiuzuiazduizaiud', NULL, '2024-05-31', '2024-05-30', NULL, NULL, NULL, NULL, '2024-05-10', '0', 2, '2024-05-09 22:49:13', 2),
 (7, 1, 'Institut polytechnique des Métiers', 'naahgdgud', 'zuiuzuiazduizaiud', NULL, '2024-05-31', '2024-05-30', NULL, NULL, NULL, NULL, '2024-05-10', '1', 2, '2024-05-09 23:09:27', 1),
 (8, 1, 'Informatique de gestion', 'Formation pour l\'informatique de gestion', 'html, css, js , php, python', NULL, '2024-09-09', '2025-07-14', NULL, NULL, NULL, NULL, '2024-05-14', '1', 2, '2024-05-14 00:00:00', 3),
 (9, 1, 'marketing digitale', 'Augmenter les visites sur le site web de l\'entreprise, de transformer ces visiteurs en clients et de les fidéliser en établissant une relation régulière avec eux', 'L\'objectif final étant de générer des ventes afin de développer le chiffre d\'affaires de l\'entreprise.', NULL, '2024-11-18', '2025-06-15', NULL, NULL, NULL, NULL, '2024-05-15', '1', 2, '2024-05-16 00:00:00', 3),
 (12, 1, 'Transport logistique', 'Il faut effectivement savoir que la logistique recouvre un ensemble d’activités.', 'Transport en logistique : enjeux et spécificités du secteur', NULL, '2024-05-27', '2025-04-17', NULL, NULL, NULL, NULL, '2024-05-17', '1', 2, '2024-05-17 00:29:47', 3),
-(13, 1, 'Informatique de gestion', 'Le programme Informatique de Gestion permet d’acquérir les compétences théoriques et pratiques dans les principaux domaines de l’informatique des Entreprises/Organisations.', 'Création d\'applications Web et Mobile', NULL, '2024-05-27', '2024-12-23', NULL, NULL, NULL, NULL, '2024-05-25', '1', 2, '2024-05-25 17:56:54', 8);
+(13, 1, 'Informatique de gestion', 'Le programme Informatique de Gestion permet d’acquérir les compétences théoriques et pratiques dans les principaux domaines de l’informatique des Entreprises/Organisations.', 'Création d\'applications Web et Mobile', NULL, '2024-05-27', '2024-12-23', NULL, NULL, NULL, NULL, '2024-05-25', '1', 2, '2024-05-25 17:56:54', 8),
+(14, 1, 'Transport logistique', 'Description', 'information', NULL, '2024-05-28', '2024-12-25', NULL, NULL, NULL, NULL, '2024-05-25', '1', 2, '2024-05-25 21:28:06', 3),
+(15, 1, 'Génie Informatique', 'L’ objectif est de former des Techniciens et Ingénieurs de Conception généralistes en Informatique et Télé- communications ayant des compétences dans le domaine de l’Etude, la Modélisation, la Réalisation et le Déploiement de bout en bout en Systèmes et Réseaux, Systèmes d’Information, Bases de Donn', 'Réseaux Télécom et sécurité\r\nGénie logiciel et sécurité', NULL, '2024-05-27', '2024-12-30', NULL, NULL, NULL, '200000', '2024-05-28', '1', 2, '2024-05-28 17:57:01', 5);
 
 -- --------------------------------------------------------
 
@@ -327,13 +338,13 @@ CREATE TABLE `ecole` (
 
 INSERT INTO `ecole` (`id`, `libelle`, `code_agent`, `logo`, `email`, `numero`, `adresse`, `description`, `pasword`, `id_type_profil`, `commentaires`, `etat`, `id_site`, `date_creation`, `date_lastmotif`, `lien_site`) VALUES
 (1, 'Université Numérique Cheikh Hamidou Kane  ', 'NI00000020', '', 'administration@unchk.edu.sn', 779900990, 'Sénégal', 'C\'est université numérique d\'enseignement supérieure du Sénégal ', 'passe', 2, 'Ecole', 'actif', 3, '2024-05-08 15:09:55', '2024-05-08 01:11:21', ''),
-(2, 'Institut polytechnique des Métiers', 'NI00000021', '', 'administration@ipm.edu.sn', 770957856, 'Dakar', 'École d\'ingénieurs', 'passe', 2, 'ecole', 'actif', 0, '2024-05-08 01:20:20', '0000-00-00 00:00:00', ''),
-(3, 'Groupe ISI', 'NI00000021', 'diplome_3__.jpg', 'administration@isi.edu.sn', 776457816, 'Dakar', 'École d\'ingénieur informatique', 'motsdepasseé', 2, 'ecole', 'actif', 3, '2024-05-22 00:37:17', '2024-05-22 00:00:00', 'https://www.groupeisi.com/'),
+(3, 'Groupe ISI', 'NI00000021', 'profilEcole_3__.jpg', 'administration@isi.edu.sn', 776457816, 'Dakar', 'École d\'ingénieur informatique', 'passer', 2, 'ecole', 'actif', 3, '2024-05-28 01:33:30', '2024-05-28 00:00:00', 'https://www.groupeisi.com/'),
 (4, 'Université Cheikh Anta Diop', 'NI00000023', '', 'administration@ucd.edu.sn', 770945689, 'Dakar', 'école publique', '278416703', 2, 'ecole', 'actif', 3, '2024-05-10 00:00:00', '0000-00-00 00:00:00', ''),
-(5, 'Institut polytechnique des Métiers', 'NI00000024', '', 'administration03@ipm.edu.sn', 770953317, 'Dakar', 'ecole', '1596418952', 2, 'ecole', 'actif', 3, '2024-05-11 00:00:00', '0000-00-00 00:00:00', ''),
-(6, 'Institut polytechnique des Métiers', 'NI00000024', '', 'administration09@ipm.edu.sn', 770951145, 'Dakar', 'ecole', '315778936', 2, 'ecole', 'actif', 3, '2024-05-11 00:00:00', '0000-00-00 00:00:00', ''),
+(5, 'Institut polytechnique des Métiers', 'NI00000024', 'profilEcole_5__.jpeg', 'administration03@ipm.edu.sn', 770953317, 'Dakar', 'École supérieure de l\'ingénierie', '1596418952', 2, 'ecole', 'actif', 3, '2024-05-28 17:38:27', '2024-05-28 00:00:00', 'https://www.ipm-ipsa.com/'),
+(6, 'Institut polytechnique des Métiers', 'NI00000024', 'profilEcole_6__.jpeg', 'administration09@ipm.edu.sn', 770951145, 'Dakar', 'École supérieure de l\'ingénierie', '315778936', 2, 'ecole', 'actif', 3, '2024-05-28 17:31:35', '2024-05-28 00:00:00', 'https://www.ipm-ipsa.com/'),
 (7, 'ESP', 'NI00000025', 'diplome_7__.jpg', 'administration@esp.edu.sn', 770942266, 'Dakar', 'ecole technique', '167048901', 2, 'ecole', 'actif', 3, '2024-05-11 14:19:42', '2024-05-11 00:00:00', 'https://www.groupeisi.com/'),
-(8, 'ensup afrique', 'NI00000026', '', 'seydinamandionem9@gmail.com', 770893369, 'Dakar', 'Ecole de formation', '511148', 2, 'ecole', 'actif', 3, '2024-05-25 00:00:00', '0000-00-00 00:00:00', '');
+(8, 'ensup afrique', 'NI00000026', '', 'seydinamandionem9@gmail.com', 770893369, 'Dakar', 'Ecole de formation', '511148', 2, 'ecole', 'actif', 3, '2024-05-25 00:00:00', '0000-00-00 00:00:00', ''),
+(9, 'Institut polytechnique des Science Applique', 'IPSA-00081', 'diplome_9__.jpeg', 'polymetiers@gmail.com', 772303092, 'Dakar', 'Ecole de Métiers', '322057', 2, 'ecole', 'actif', 3, '2024-05-25 22:05:34', '2024-05-26 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -1670,9 +1681,9 @@ CREATE TABLE `responsable_filiere` (
 --
 
 INSERT INTO `responsable_filiere` (`id`, `nom`, `prenom`, `code_agent`, `img_profil`, `email`, `numero`, `adresse`, `sex`, `password`, `observation`, `id_type_profil`, `etat`, `id_site`, `date_creation`, `date_lastmodif`, `idEcole`, `idOffre`) VALUES
-(1, 'Diaw', 'Mr', 'NI0000001', '', 'mrdiaw@gmail.com', 770978823, 'Dakar', 'M', 'passer', 'Responsable de la filière informatique', 3, '1', 3, '2024-05-17 00:40:37', '2024-05-14 01:14:41', 2, 7),
 (6, 'sane', 'coumba', 'NI00000025', 'diplome_6__.jpg', 'coumbasane@isi.edu.sn', 779452341, 'patte d\'oie', 'F', 'passer', 'Responsable Informatique', 3, '1', 3, '2024-05-22 11:18:42', '2024-05-22 00:00:00', 3, 8),
-(8, 'Mbaye', 'Mandione', 'NI00000026', '', 'mandionelay99@gmail.com', 0, '', 'M', '686922', 'Responsable Informatique de gestion', 3, '1', 3, '2024-05-25 00:00:00', '0000-00-00 00:00:00', 8, 13);
+(8, 'Mbaye', 'Mandione', 'NI00000026', '', 'mandionelay99@gmail.com', 0, '', 'M', '686922', 'Responsable Informatique de gestion', 3, '1', 3, '2024-05-25 00:00:00', '0000-00-00 00:00:00', 8, 13),
+(9, 'Joie', 'Buur', 'NI00000021', 'profile_9__.png', 'epsilonedabax@gmail.com', 2147483647, 'Dakar', 'M', '136020', 'responsable transport', 3, '1', 3, '2024-05-28 01:22:24', '2024-05-28 00:00:00', 3, 14);
 
 -- --------------------------------------------------------
 
@@ -2310,7 +2321,70 @@ INSERT INTO `z_connexions` (`id`, `ip`, `name_`, `profil_`, `id_site`, `navigate
 (457, '::1', 'DEMBA DIACK', 'Super Admin', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 17:17:37'),
 (458, '::1', 'ensup afrique', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 17:53:41'),
 (459, '::1', 'ensup afrique', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 18:02:37'),
-(460, '::1', 'ensup afrique', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 18:07:28');
+(460, '::1', 'ensup afrique', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 18:07:28'),
+(461, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 21:26:22'),
+(462, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 21:32:05'),
+(463, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 21:33:04'),
+(464, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 21:34:29'),
+(465, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 21:43:34'),
+(466, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 21:44:13'),
+(467, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 21:44:59'),
+(468, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 21:47:00'),
+(469, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 21:47:29'),
+(470, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 21:48:33'),
+(471, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 21:50:23'),
+(472, '::1', 'DEMBA DIACK', 'Super Admin', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 21:51:25'),
+(473, '::1', 'DEMBA DIACK', 'Super Admin', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 21:59:13'),
+(474, '::1', 'Institut polytechnique des Science Applique', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 22:00:08'),
+(475, '::1', 'Institut polytechnique des Science Applique', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 22:05:51'),
+(476, '::1', 'DEMBA DIACK', 'Super Admin', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 22:06:07'),
+(477, '::1', 'DEMBA DIACK', 'Super Admin', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 22:11:29'),
+(478, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 22:12:12'),
+(479, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 22:17:46'),
+(480, '::1', 'Institut polytechnique des Science Applique', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 22:18:35'),
+(481, '::1', 'Institut polytechnique des Science Applique', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 22:19:06'),
+(482, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 22:19:19'),
+(483, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 22:31:19'),
+(484, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 23:00:10'),
+(485, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 23:00:21'),
+(486, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-25 23:02:44'),
+(487, '::1', 'DEMBA DIACK', 'Super Admin', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-25 23:03:20'),
+(488, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-27 23:22:29'),
+(489, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-27 23:51:35'),
+(490, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 01:03:23'),
+(491, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 01:03:35'),
+(492, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 01:04:39'),
+(493, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 01:14:38'),
+(494, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 01:15:15'),
+(495, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 01:25:19'),
+(496, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 01:25:32'),
+(497, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 01:34:45'),
+(498, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 17:24:31'),
+(499, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 17:25:38'),
+(500, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 17:34:07'),
+(501, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 17:34:55'),
+(502, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 17:36:22'),
+(503, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 17:36:47'),
+(504, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 17:37:15'),
+(505, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 17:58:23'),
+(506, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 18:13:38'),
+(507, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 23:26:49'),
+(508, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 23:28:40'),
+(509, '::1', 'Institut polytechnique des Métiers', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 23:31:58'),
+(510, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 23:32:35'),
+(511, '::1', 'BUUR JOIE', 'responsable_filiere', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-28 23:44:50'),
+(512, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-28 23:45:02'),
+(513, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-29 13:06:34'),
+(514, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-29 14:52:29'),
+(515, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-29 16:51:30'),
+(516, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-29 17:20:14'),
+(517, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-29 17:38:05'),
+(518, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-29 17:38:21'),
+(519, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-29 17:39:10'),
+(520, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-30 01:07:11'),
+(521, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-30 01:10:04'),
+(522, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-30 01:12:50'),
+(523, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-30 01:18:58');
 
 -- --------------------------------------------------------
 
@@ -2385,7 +2459,13 @@ INSERT INTO `z_log_error_connexions` (`id`, `ip`, `login`, `mdp`, `navigateur`, 
 (53, '::1', 'administration@isi.edu.sn', 'motsdepasse2', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '2024-05-22 10:06:24'),
 (54, '::1', 'bayedemba@gmail.com', 'passeraz', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-25 17:17:28'),
 (55, '::1', 'seydinamandionem9@gmail.com', '(&&&\'_', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-25 17:52:55'),
-(56, '::1', 'seydinamandionem9@gmail.com', '511148', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-25 18:06:51');
+(56, '::1', 'seydinamandionem9@gmail.com', '511148', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-25 18:06:51'),
+(57, '::1', 'bayedemba@gmail.com', 'passeraz', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-25 21:45:25'),
+(58, '::1', 'bayedemba@gmail.com', 'passeraz', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-25 23:03:03'),
+(59, '::1', 'polymetiers@gmail.com', '322057', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-28 01:14:49'),
+(60, '::1', 'polymetiers@gmail.com', '322057', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-28 01:15:02'),
+(61, '::1', 'polymetiers@gmail.com', '322057', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-28 23:32:10'),
+(62, '::1', 'mandione@gmail.com', 'passe', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-29 17:38:11');
 
 -- --------------------------------------------------------
 
@@ -2639,37 +2719,37 @@ ALTER TABLE `z_trace_activities`
 -- AUTO_INCREMENT pour la table `c_candidats`
 --
 ALTER TABLE `c_candidats`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT pour la table `c_candidats_details`
 --
 ALTER TABLE `c_candidats_details`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `c_candidats_diplomes`
 --
 ALTER TABLE `c_candidats_diplomes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT pour la table `c_candidats_experiences`
 --
 ALTER TABLE `c_candidats_experiences`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `c_candidats_langues`
 --
 ALTER TABLE `c_candidats_langues`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `c_candidatures`
 --
 ALTER TABLE `c_candidatures`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `c_categorie_des_offres`
@@ -2681,13 +2761,13 @@ ALTER TABLE `c_categorie_des_offres`
 -- AUTO_INCREMENT pour la table `c_offres`
 --
 ALTER TABLE `c_offres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `ecole`
 --
 ALTER TABLE `ecole`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `lst_diplomes`
@@ -2735,7 +2815,7 @@ ALTER TABLE `par_lieux_sn`
 -- AUTO_INCREMENT pour la table `responsable_filiere`
 --
 ALTER TABLE `responsable_filiere`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `sys_almustakhdam`
@@ -2777,13 +2857,13 @@ ALTER TABLE `sys_type_profil`
 -- AUTO_INCREMENT pour la table `z_connexions`
 --
 ALTER TABLE `z_connexions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=461;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=524;
 
 --
 -- AUTO_INCREMENT pour la table `z_log_error_connexions`
 --
 ALTER TABLE `z_log_error_connexions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT pour la table `z_trace_activities`

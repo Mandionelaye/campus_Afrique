@@ -221,20 +221,22 @@ class C_mon_espace_candidatures_depot extends CI_Controller
 		}
 		
 	//infos-depot-message
+	$nombre_aleatoire = rand(100, 999);
 
 		$data_to_insert 	= array(
 					
 			'code_candidat' 	=> $code_candidat,
 			'id_offre' 			=> $code_conc,
-			'code_depot' 		=> 'ADYNAMISER',
+			'code_depot' 		=> 'ADYNAM'.$nombre_aleatoire,
 			'cand_niveau_etude'	=> $data['dt_infos'] ['cand_niveau_etude'], 
 			'cand_experiences'	=> $data['dt_infos'] ['cand_experiences'], 
 			//'can_experience_1'		 	=> $this->input->post('parle'), 
 			//'can_experience_2'		 	=> $this->input->post('etat'), 
 			//'can_experience_3'		 	=> $this->input->post('ecrit'), 
-			//'can_diplome_1'		 		=> $data['dt_diploms']['dt_diploms'], 
+			// 'can_diplome_1'		 		=> $data['dt_infos']['can_diplome'], 
 			'date_creation'	=> date('Y-m-d'),
-			//'id_op_saisie' 		=> $this->m_modele->id_op_saisie,
+			'etat'	=> 1,
+			'id_op_saisie' 		=> 2,
 		);
 
 		for ($i=0; $i < 3; $i++) 

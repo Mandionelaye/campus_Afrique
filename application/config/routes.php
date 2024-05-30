@@ -80,6 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //change mdp
     $route['wethio-thiabi']             = 'sama_keur/C_mon_espace/change_password';
     $route['verif-wethio-thiabi']       = 'sama_keur/C_mon_espace/verif_wethio_thiabi';
+    $route['verif-wethio-thiabi1']       = 'sama_keur/C_mon_espace/verif_wethio_thiabi1'; // {bj} pour le candidat
     $route['erreur-change-mdp']         = 'sama_keur/C_mon_espace/show_message_error_mdp'; 
     $route['success-change-mdp']        = 'sama_keur/C_mon_espace/show_message_ok_change_mdp'; 
 
@@ -240,6 +241,8 @@ $route['ajouter-candidature']                   = 'candidatures/C_candidatures/a
 $route['supprimer-candidature-ok/([A-Za-z0-9-]+)'] = 'candidatures/C_candidatures/delete_one_elt/$1';
 $route['rejet-candidature/([A-Za-z0-9-]+)']   = 'candidatures/C_candidatures/rejet/$1';
 $route['presel-candidature/([A-Za-z0-9-]+)']   = 'candidatures/C_candidatures/retenu/$1';
+$route['concour-candidature/([A-Za-z0-9-]+)']   = 'candidatures/C_candidatures/concour/$1';
+$route['test-candidature/([A-Za-z0-9-]+)']   = 'candidatures/C_candidatures/test/$1';
 
 $route['voir-profil-du-candidat/([A-Za-z0-9-]+)'] = 'candidatures/C_candidatures/profil_candidat/$1';
 

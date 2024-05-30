@@ -7,7 +7,7 @@ class M_connexions extends CI_Model {
 	}	
 
 
-	public function identification($login,$pass)
+	public function identification($login,$pass, $ien)
 	{
 
 		$sql_ll = "
@@ -22,7 +22,7 @@ class M_connexions extends CI_Model {
 			
 		";
 
-		$sql_ll.="WHERE u.email=? AND  u.mot_de_passe=? AND u.etat='actif' ";//merci de renseigner le mail dans la table agent sino cela ne marchera pas
+		$sql_ll.="WHERE u.email=? AND  u.mot_de_passe=? AND u.etat=1 ";//merci de renseigner le mail dans la table agent sino cela ne marchera pas
 			
 	//demba_debug($sql_ll);							
 		$query = $this->db->query($sql_ll,array($login,$pass));								

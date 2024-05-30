@@ -64,7 +64,7 @@ if (!empty($rdc2_rights['add']))
                         <th>Candidat</th>
                         <th>Offre</th>
                         <th>Montant inscription</th>
-                        <th>Mode de paiement</th>
+                        <th>Niveau d'etude</th>
                         <th>Statut</th>
                         <th>Actions</th>
                     </tr>
@@ -79,22 +79,24 @@ if (!empty($rdc2_rights['add']))
                                                 <td><?php echo $value->code_candidat ?></td>
                                                 <td><?php echo $value->prenom.' '.$value->nom  ?></td>
                                                 <td><?php echo $value->_offre; ?></td>
-                                                <td><?php echo $value->montant_inscr; ?></td>
-                                                <td><?php echo $value->mode_paie; ?></td>
+                                                <td><?php echo $value->montant_a_payer; ?></td>
+                                                <td><?php echo $value->cand_niveau_etude; ?></td>
                                                 
                                                  <td>   <a href="<?php echo site_url('details-candidature/' . $value->id);  ?>" class='on-default btn_edit' id='<?php echo $value->id; ?>'>
                                                  <?php
 								if ($value->etat == 'depot_en_cours') {
 
 									echo "<span class='badge' style='background-color:blue'> &nbsp &nbsp  Depot en cours &nbsp &nbsp </span>";
-								} else if ($value->etat == 'commission_en_cours') {
-									echo "<span class='badge bg-primary'> &nbsp  Commission en cours &nbsp </span>";}
-									else if ($value->etat == 'retenu') {
-										echo "<span class='badge bg-success'> &nbsp  Retenu &nbsp </span>";}
-										else if ($value->etat == 'liste_attente') {
-											echo "<span class='badge bg-primary'> &nbsp  En liste attente &nbsp </span>";}
-											else if ($value->etat == 'elimine') {
-												echo "<span class='badge bg-danger'> &nbsp  Eliminé &nbsp </span>";}
+								} else if ($value->etat == 'concour') {
+									echo "<span class='badge bg-info'> &nbsp  Concours d'admission &nbsp </span>";}
+									else if ($value->etat == 'accepter') {
+										echo "<span class='badge bg-success'> &nbsp  Accepter &nbsp </span>";}
+										else if ($value->etat == 'test') {
+											echo "<span class='badge bg-primary'> &nbsp  Test d'admission &nbsp </span>";}
+											else if ($value->etat == 'refuser') {
+												echo "<span class='badge bg-danger'> &nbsp  refuser &nbsp </span>";}
+                                                else if ($value->etat == 'depot_en_cours') {
+                                                    echo "<span class='badge bg-danger'> &nbsp  depot en cours &nbsp </span>";}
 												else {
 													echo "<span class='badge' style='background-color:orange'> &nbsp  Cloturé &nbsp </span>";}
 																		

@@ -74,6 +74,19 @@
 
 					<div class="row mb-3">
 						<div class="col-sm-4">
+							<label class="text-center">Montant a payer</label>
+						</div>
+					<div class="col-sm-8">
+							<?php
+								$val_var = !empty(set_value('montant_a_payer')) ? set_value('montant_a_payer') : '';
+							?>
+							<input type="number" class="form-control" value="<?php echo $val_var; ?>" name="montant_a_payer">
+							<?php echo form_error('montant_a_payer', '<div class="error">', '</div>'); ?>
+						</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-sm-4">
 							<label class="text-center">Désignation</label>
 						</div>
 						<div class="col-sm-8">
