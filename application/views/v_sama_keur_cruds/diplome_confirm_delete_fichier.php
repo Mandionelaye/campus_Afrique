@@ -6,9 +6,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
+              <?php if (substr($dat_one_row['image'], 0, 5) !== "piece") { ?>
                 <img src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']); ?>" alt="">
-
+              <?php } else { ?>
+                <img src="<?php echo base_url('j0kimpl8ldq/autre_piece/' . $dat_one_row['image']); ?>" alt="">
+              <?php } ?>
             </div>
             <!--div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
@@ -17,7 +19,7 @@
         </div>
     </div>
 </div><!-- End Vertically centered Modal-->
-<div class="card">
+<div class="card mb-5">
     <div class="card-body">
         <h5 class="card-title">Confirmation de la <?php echo $title ?></h5>
 
@@ -55,23 +57,34 @@
                                     $extension = pathinfo($image, PATHINFO_EXTENSION);
                                     switch ($extension) {
                                         case "jpg": ?>
-                                            <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']); ?>" width="300" height="200">
+                                            <img id="myImage" src="
+                                            <?php echo substr($dat_one_row['image'], 0, 5) !== 'piece'? 
+                                            base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']):
+                                            base_url('j0kimpl8ldq/autre_piece/' . $dat_one_row['image']); ?>" width="300" height="200">
 
                                         <?php break;
                                         case "jpeg": ?>
-                                            <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']); ?>" width="300" height="200">
+                                            <img id="myImage" src="<?php echo substr($dat_one_row['image'], 0, 5) !== 'piece'? 
+                                            base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']):
+                                            base_url('j0kimpl8ldq/autre_piece/' . $dat_one_row['image']); ?>" width="300" height="200">
 
                                         <?php break;
                                         case "png": ?>
-                                            <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']); ?>" width="300" height="200">
+                                            <img id="myImage" src="<?php echo substr($dat_one_row['image'], 0, 5) !== 'piece'? 
+                                            base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']):
+                                            base_url('j0kimpl8ldq/autre_piece/' . $dat_one_row['image']); ?>" width="300" height="200">
 
                                         <?php break;
                                         case "docx": ?>
-                                            <a download="mon_diplome.docx" href="<?php echo base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']); ?>">Récupérer le diplome </a>
+                                            <a download="mon_diplome.docx" href="<?php echo substr($dat_one_row['image'], 0, 5) !== 'piece'? 
+                                            base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']):
+                                            base_url('j0kimpl8ldq/autre_piece/' . $dat_one_row['image']); ?>">Récupérer le diplome </a>
 
                                         <?php break;
                                         case "pdf": ?>
-                                            <iframe frameborder="0" width="500" height="300" src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']); ?>" width="300" height="200"></iframe>
+                                            <iframe frameborder="0" width="500" height="300" src="<?php echo substr($dat_one_row['image'], 0, 5) !== 'piece'? 
+                                            base_url('j0kimpl8ldq/diplomes/' . $dat_one_row['image']):
+                                            base_url('j0kimpl8ldq/autre_piece/' . $dat_one_row['image']); ?>" width="300" height="200"></iframe>
 
                                     <?php
                                     }
@@ -91,7 +104,11 @@
                         ?>
                         <tr>
                             <td>Supprimer</td>
+                            <?php if (substr($dat_one_row['image'], 0, 5) !== "piece") { ?>
                             <td><a href=<?php echo site_url('supprimer-image-diplome-ok/' . $dat_one_row['id']) ?>><button type="button" class="btn btn-danger">Cliquer ici pour supprimer</button></a></td>
+                             <?php } else { ?>
+                            <td><a href=<?php echo site_url('supprimer-image-autre-piece-ok/' . $dat_one_row['id']) ?>><button type="button" class="btn btn-danger">Cliquer ici pour supprimer</button></a></td>
+                                <?php } ?>
                         </tr>
 
                         <?php

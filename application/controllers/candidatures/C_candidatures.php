@@ -261,7 +261,8 @@ class C_candidatures extends MY_Controller
 		$data['all_data_langues'] 		= $this->m_modele->get_data_liste_langues($code_elt);
 		$data['all_data_diplomes'] 		= $this->m_modele->get_data_liste_diplomes($code_elt);
 		$data['date_one_details']		= $this->m_modele->get_data_liste_pieces($code_elt);
-
+		$data['all_data_autre_piece']		= $this->m_modele->get_data_liste_autre_piece($code_elt);
+        //   var_dump($data['all_data_autre_piece']);
 		@$data['date_one_element']		= $this->m_modele->get_data_liste_cand($code_elt);
 
 		@$data['contents']	= 'v_sama_keur/sama_cv';

@@ -90,6 +90,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $route['liste-des-pieces']              = 'sama_keur/C_mon_espace_pieces/list_pieces';
 	$route['modifier-pieces']   			= 'sama_keur/C_mon_espace_pieces/edit_one_element';
 
+
+    $route['liste-des-autre-piece']                        = 'sama_keur/C_mon_espace_autre_piece/list_autre_piece';
+    $route['ajouter-un-autre-piece']                        = 'sama_keur/C_mon_espace_autre_piece/ajouter_un_autre_piece';
+    $route['resize-un-diplome']                        = 'sama_keur/C_mon_espace_autre_piece/redimensionner_images';
+    $route['traiter-fichier-autre-piece']                  = 'sama_keur/C_mon_espace_autre_piece/add_files';
+    $route['supprimer-image-autre-piece/([A-Za-z0-9-]+)']   = 'sama_keur/C_mon_espace_autre_piece/delete_one_file_confirm/$1';
+    $route['supprimer-image-autre-piece-ok/([A-Za-z0-9-]+)']= 'sama_keur/C_mon_espace_autre_piece/delete_one_file_confirm_ok/$1';
+    $route['supprimer-un-autre-piece/([A-Za-z0-9-]+)']      = 'sama_keur/C_mon_espace_autre_piece/supprimer_un_autre_piece/$1';
+
+
+
     $route['liste-des-diplomes']                        = 'sama_keur/C_mon_espace_diplomes/list_diplomes';
     $route['ajouter-un-diplome']                        = 'sama_keur/C_mon_espace_diplomes/ajouter_un_diplome';
     $route['resize-un-diplome']                        = 'sama_keur/C_mon_espace_diplomes/redimensionner_images';
@@ -207,6 +218,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	$route['liste-Etablissement']                     = 'ecoles/c_ecole/index';
+    $route['details-Etablissement/([A-Za-z0-9-]+)']   = 'ecoles/c_ecole/show_one_elt/$1';
+    $route['supprimer-Etablissement/([A-Za-z0-9-]+)']   = 'ecoles/c_ecole/confirm_delete_one_elt/$1';
+    $route['supprimer-Etablissement-ok/([A-Za-z0-9-]+)'] = 'ecoles/c_ecole/delete_one_elt/$1';
     $route['ajouter-Etablissement']                   = 'ecoles/c_ecole/add_one_element';
     $route['modifier-candidat/([A-Za-z0-9-]+)']  = 'candidats/C_candidats/edit_one_elt/$1';
     $route['details-candidat/([A-Za-z0-9-]+)']   = 'candidats/C_candidats/show_one_elt/$1';

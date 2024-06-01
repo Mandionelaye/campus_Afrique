@@ -68,7 +68,6 @@ if (!empty($rdc2_rights == 'add'))
                         <th>Email</th>
                         <th>Téléphone</th>
                         <th>Adrésse</th>
-                        <th>Commentaires</th>
                         <th>Date de creation</th>
                         <th>Statut</th>
                     </tr>
@@ -85,10 +84,9 @@ if (!empty($rdc2_rights == 'add'))
                                                 <td><?php echo $value["email"]; ?></td>
 												<td><?php echo $value["numero"]; ?></td>
                                                 <td><?php echo $value["adresse"]; ?></td>
-												<td><?php echo $value["commentaires"]; ?></td>
                                                 <td><?php echo $value["date_creation"]; ?></td>
                                                 <td>
-                                                    <a href="<?php echo site_url('details-candidat/' . $value["id"]);  ?>" class='on-default btn_edit' id='<?php echo $value->id; ?>'>
+                                                    <a href="<?php echo site_url('details-Etablissement/' . $value["id"]);  ?>" class='on-default btn_edit' id='<?php echo $value->id; ?>'>
                                                     <?php 
                                                         if($value["etat"]=='actif')
                                                             {

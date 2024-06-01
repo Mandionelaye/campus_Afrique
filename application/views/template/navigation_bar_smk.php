@@ -17,9 +17,9 @@ $smenu_roles = $this->session->smenu_roles;
 
 
       <li class="nav-item"><a class="nav-smk" href="<?php echo site_url('liste-des-pieces') ?>"><i class="bi bi-files"></i><span>Pièces</span></a></li>
-      <li class="nav-item"><a class="nav-smk" href="<?php echo site_url('liste-des-diplomes') ?>"><i class="bi bi-book-half"></i><span>Diplômes</span></a></li>
+      <li class="nav-item"><a class="nav-smk" href="<?php echo site_url('liste-des-diplomes') ?>"><i class="bi bi-book-half"></i><span>Diplômes & bulletin</span></a></li>
       <li class="nav-item"><a class="nav-smk" href="<?php echo site_url('liste-des-experiences') ?>"><i class="bi bi-file-earmark-ruled"></i><span>Expériences</span></a></li>
-
+      <li class="nav-item"><a class="nav-smk" href="<?php echo site_url('liste-des-autre-piece') ?>"><i class="bi bi-book-half"></i><span>Autre Pièces</span></a></li>
 
       <li class="nav-item"><a class="nav-smk" href="<?php echo site_url('liste-des-langues') ?>"><i class="bi bi-speaker"></i><span>Langues</span></a></li>
       <li class="nav-item"> <a class="nav-smk" href="<?php echo site_url('liste-des-candidatures') ?>"><i class="bi bi-bag-check-fill"></i><span>Mes Candidatures</span></a></li>

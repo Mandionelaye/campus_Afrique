@@ -333,7 +333,7 @@
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <?php if($this->session->can8_g1qsu_30q9o['profil'] == 'Ecole' || $this->session->can8_g1qsu_30q9o['profil'] == 'responsable_filiere'){ ?>
               <img src="<?= $this->session->can8_g1qsu_30q9o['logo']?
-              'j0kimpl8ldq/logo/'.$this->session->can8_g1qsu_30q9o['logo']
+               base_url().'j0kimpl8ldq/logo/'.$this->session->can8_g1qsu_30q9o['logo']
               :base_url().'/assets/img/profile-img.jpg' ?>"
                alt="Profile1" class="rounded-circle">
                <?php }else{ ?>

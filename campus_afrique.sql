@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 30 mai 2024 à 18:07
+-- Généré le : sam. 01 juin 2024 à 14:20
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.2
 
@@ -56,9 +56,37 @@ INSERT INTO `c_candidats` (`id`, `code_candidat`, `prenom`, `nom`, `sexe`, `tele
 (27, 'NI00000083', 'Augustin', 'Ndiaye', 'Masc', NULL, 'ndiayeaugustin18@gmail.com', 'augusTIN18', NULL, NULL, '2023-08-03', NULL, '::1', 0, '2023-08-03 12:40:59', ''),
 (29, 'BT00000085', 'Astou', 'faye', 'Fem', NULL, 'astouFaye@gmail.com', 'passe', NULL, NULL, '2024-05-07', 2, '::1', 0, '2024-05-07 00:42:29', ''),
 (30, 'BT00000086', 'adama', 'diagne', 'Fem', NULL, 'adamalayediagne05@gmail.com', 'passe', NULL, NULL, '2024-05-07', 2, '::1', 0, '2024-05-07 00:49:10', ''),
-(35, 'BT00000088', 'Baye', 'Demba', 'Masc', '779862676', 'bayedemba@gmail.com', 'passeraz', NULL, NULL, '2024-05-22', 2, '::1', 1, '2024-05-22 00:00:00', ''),
+(35, 'BT00000088', 'Baye', 'Demba', 'Masc', '779862676', 'bayedemba@gmail.com', 'passeraz', NULL, NULL, '2024-05-22', 2, '::1', 1, '2024-06-01 00:00:00', 'profile_35__.png'),
 (37, 'BT00000089', 'Buur', 'Joie', 'Masc', NULL, 'mandionelay99@gmail.com', 'passer', NULL, NULL, '2024-05-25', 2, '::1', 0, '2024-05-25 17:13:17', ''),
 (38, 'BT00000090', 'Malamine', 'Sane', 'Masc', NULL, 'epsilonedabax@gmail.com', 'passe', NULL, NULL, '2024-05-26', 2, '::1', 0, '2024-05-25 22:14:05', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `c_candidats_autre_piece`
+--
+
+CREATE TABLE `c_candidats_autre_piece` (
+  `id` int(11) NOT NULL,
+  `code_candidat` varchar(10) NOT NULL,
+  `id_type_diplome` int(11) NOT NULL,
+  `libelle` varchar(255) NOT NULL,
+  `annee_obtention` varchar(15) NOT NULL,
+  `lieu_obtention` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `date_creation` date NOT NULL,
+  `etat` enum('0','1') NOT NULL,
+  `id_op_saisie` int(11) NOT NULL,
+  `date_last_modif` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `c_candidats_autre_piece`
+--
+
+INSERT INTO `c_candidats_autre_piece` (`id`, `code_candidat`, `id_type_diplome`, `libelle`, `annee_obtention`, `lieu_obtention`, `image`, `date_creation`, `etat`, `id_op_saisie`, `date_last_modif`) VALUES
+(1, 'NU00000081', 0, 'Photographie d\'identité', '2017', 'Dakar', 'piece__NU00000081__1.pdf', '2024-05-31', '0', 0, '2024-05-31 17:16:16'),
+(3, 'BT00000088', 0, 'Photographie de passeport', '2023', 'Dakar', 'piece__BT00000088__3.png', '2024-06-01', '0', 0, '2024-06-01 01:01:40');
 
 -- --------------------------------------------------------
 
@@ -119,9 +147,8 @@ CREATE TABLE `c_candidats_diplomes` (
 
 INSERT INTO `c_candidats_diplomes` (`id`, `code_candidat`, `id_type_diplome`, `libelle`, `annee_obtention`, `lieu_obtention`, `image`, `date_creation`, `etat`, `id_op_saisie`, `date_last_modif`) VALUES
 (4, 'NU00000084', 2, '', '2023', NULL, NULL, '2023-04-18', '1', 12, '2023-07-11 09:38:06'),
-(11, 'NU00000081', 2, 'kjdsamd udbd', 'dkqn', 'idan', NULL, '2023-07-14', '1', 0, '2023-07-14 18:37:41'),
-(15, 'NU00000081', 2, 'PAIEMENT  6e REG', '2012', 'UGB', NULL, '2023-07-18', '1', 0, '2023-07-18 17:38:28'),
-(17, 'NU00000081', 2, '111', '111', '11', 'diplome__NU00000081__17.jpg', '2023-07-18', '1', 0, '2023-07-18 17:38:57'),
+(11, 'NU00000081', 2, 'kjdsamd udbd', 'dkqn', 'idan', 'diplome__NU00000081__11.pdf', '2023-07-14', '1', 0, '2023-07-14 18:37:41'),
+(15, 'NU00000081', 2, 'PAIEMENT  6e REG', '2012', 'UGB', 'diplome__NU00000081__15.pdf', '2023-07-18', '1', 0, '2023-07-18 17:38:28'),
 (18, 'BT00000088', 2, 'Transport logistique', '2021', 'UNCHK', 'diplome__BT00000088__18.pdf', '2024-05-25', '1', 0, '2024-05-25 21:38:20');
 
 -- --------------------------------------------------------
@@ -369,7 +396,8 @@ CREATE TABLE `lst_diplomes` (
 INSERT INTO `lst_diplomes` (`id`, `libelle`, `commentaires`, `etat`, `date_creation`, `id_op_saisie`, `date_last_modif`) VALUES
 (1, 'Master 2', '2022 ANNEE', '1', '2023-06-24', 2, NULL),
 (2, 'Licence', 'xx', '1', '2023-07-07', 2, NULL),
-(3, 'Maitrise', 'Maitrise/ Bac+4', '1', '2023-07-12', 2, '2023-07-12 05:39:23');
+(3, 'Maitrise', 'Maitrise/ Bac+4', '1', '2023-07-12', 2, '2023-07-12 05:39:23'),
+(4, 'Baccalauréat', '« Bac » est un diplôme phare du système éducatif.', '1', '2024-05-31', 2, '2024-05-31 16:16:07');
 
 -- --------------------------------------------------------
 
@@ -2384,7 +2412,17 @@ INSERT INTO `z_connexions` (`id`, `ip`, `name_`, `profil_`, `id_site`, `navigate
 (520, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-30 01:07:11'),
 (521, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-30 01:10:04'),
 (522, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-30 01:12:50'),
-(523, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-30 01:18:58');
+(523, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-30 01:18:58'),
+(524, '::1', 'DEMBA DIACK', 'Super Admin', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-30 16:31:07'),
+(525, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-30 23:43:43'),
+(526, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-31 01:35:21'),
+(527, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-05-31 01:45:29'),
+(528, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-05-31 01:45:37'),
+(529, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-06-01 00:18:07'),
+(530, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-06-01 01:00:12'),
+(531, '::1', NULL, NULL, 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-06-01 01:02:11'),
+(532, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'in', '2024-06-01 01:02:21'),
+(533, '::1', 'Groupe ISI', 'Ecole', 1, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'out', '2024-06-01 01:11:15');
 
 -- --------------------------------------------------------
 
@@ -2465,7 +2503,8 @@ INSERT INTO `z_log_error_connexions` (`id`, `ip`, `login`, `mdp`, `navigateur`, 
 (59, '::1', 'polymetiers@gmail.com', '322057', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-28 01:14:49'),
 (60, '::1', 'polymetiers@gmail.com', '322057', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-28 01:15:02'),
 (61, '::1', 'polymetiers@gmail.com', '322057', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-28 23:32:10'),
-(62, '::1', 'mandione@gmail.com', 'passe', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-29 17:38:11');
+(62, '::1', 'mandione@gmail.com', 'passe', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-29 17:38:11'),
+(63, '::1', 'bayedemba@gmail.com', 'passe', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '2024-05-30 16:30:53');
 
 -- --------------------------------------------------------
 
@@ -2530,6 +2569,12 @@ ALTER TABLE `c_candidats`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `code_candidat` (`code_candidat`);
+
+--
+-- Index pour la table `c_candidats_autre_piece`
+--
+ALTER TABLE `c_candidats_autre_piece`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `c_candidats_details`
@@ -2722,6 +2767,12 @@ ALTER TABLE `c_candidats`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
+-- AUTO_INCREMENT pour la table `c_candidats_autre_piece`
+--
+ALTER TABLE `c_candidats_autre_piece`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT pour la table `c_candidats_details`
 --
 ALTER TABLE `c_candidats_details`
@@ -2731,7 +2782,7 @@ ALTER TABLE `c_candidats_details`
 -- AUTO_INCREMENT pour la table `c_candidats_diplomes`
 --
 ALTER TABLE `c_candidats_diplomes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `c_candidats_experiences`
@@ -2773,7 +2824,7 @@ ALTER TABLE `ecole`
 -- AUTO_INCREMENT pour la table `lst_diplomes`
 --
 ALTER TABLE `lst_diplomes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `lst_langues`
@@ -2857,13 +2908,13 @@ ALTER TABLE `sys_type_profil`
 -- AUTO_INCREMENT pour la table `z_connexions`
 --
 ALTER TABLE `z_connexions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=524;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=534;
 
 --
 -- AUTO_INCREMENT pour la table `z_log_error_connexions`
 --
 ALTER TABLE `z_log_error_connexions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT pour la table `z_trace_activities`

@@ -325,7 +325,7 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="<?php echo $this->session->userdata['samay_mbiir']['can8_g1qsu_30q9o']['logo']?
-             'j0kimpl8ldq/logo/'.$this->session->userdata['samay_mbiir']['can8_g1qsu_30q9o']['logo'] 
+             base_url().'j0kimpl8ldq/logo/'.$this->session->userdata['samay_mbiir']['can8_g1qsu_30q9o']['logo'] 
              :base_url().'assets/img/profile-img.jpg' ?>"
              alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $this->session->userdata['samay_mbiir']['can8_g1qsu_30q9o']['_the_name']; ?></span>

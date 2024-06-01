@@ -77,6 +77,46 @@ class M_sama_keur_cruds extends  CI_Model
    }
 
 
+   ////////////////////////////////////////////////// 
+         // Autre Piece
+         public function get_data_liste_autre_piece($code_candidat)
+         {
+            return $this->db->select("
+            c.image,c.id,c.libelle,c.annee_obtention,c.date_creation,c.etat,c.lieu_obtention
+               
+                ")
+               ->from('c_candidats_autre_piece c')
+               // ->join('lst_diplomes AS d', 'd.id=c.id_type_diplome', 'INNER')
+               ->where('code_candidat',$code_candidat)
+               ->get()
+               ->result();
+      
+            //result_array
+         }
+
+
+              //////////////// Autre Piece
+      public function get_data_one_autre_piece($id_diplom_candidat)
+      {
+         return $this->db->select("
+         c.image,c.id,c.libelle,c.annee_obtention,c.date_creation,c.etat,c.lieu_obtention
+            
+             ")
+            ->from('c_candidats_autre_piece c')
+            // ->join('lst_diplomes AS d', 'd.id=c.id_type_diplome', 'INNER')
+            ->where('c.id',$id_diplom_candidat)
+            ->get()
+            ->row_array();
+   
+         //result_array
+      }
+
+      function insert_one_candidat_autre_piece($data)
+      {
+         return $this->db->insert('c_candidats_autre_piece', $data);
+      }
+
+      
    //////////////////////////////////
    ////////////////:experience
       public function get_data_liste_experiences($code_candidat)
@@ -93,6 +133,11 @@ class M_sama_keur_cruds extends  CI_Model
    
          //result_array
       }
+
+
+
+
+
 
       function insert_one_candidat_experience($data)
       {

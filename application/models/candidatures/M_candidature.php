@@ -179,6 +179,23 @@ class M_candidature extends  MY_Model
 
       //result_array
    }
+
+
+   public function get_data_liste_autre_piece($code_elt)
+   {
+      return $this->db->select("
+      c.image,c.id,c.libelle,c.annee_obtention,c.date_creation,c.etat,c.lieu_obtention
+         
+          ")
+         ->from('c_candidats_autre_piece c')
+         // ->join('lst_diplomes AS d', 'd.id=c.id_type_diplome', 'INNER')
+         ->join('c_candidatures AS p', 'p.code_candidat=c.code_candidat', 'INNER')
+         ->where('p.id',$code_elt)
+         ->get()
+         ->result();
+
+      //result_array
+   }
    
    public function get_data_liste_pieces($code_elt)
    {

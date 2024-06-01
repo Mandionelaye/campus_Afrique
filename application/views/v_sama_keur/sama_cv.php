@@ -5,9 +5,10 @@
                 <div class="col-12" style="margin-bottom: 20px;">
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                        <a href="<?php echo site_url('download'); ?>">Télécharger</a>
+                            <a href="<?php echo site_url('download'); ?>">Télécharger</a>
 
-                            <img src="<?php echo base_url(); ?>assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                            <img src="<?php  echo $date_one_element['img_profil']?base_url().'j0kimpl8ldq/logo/'.$date_one_element['img_profil']:base_url().'assets/img/profile-img.jpg' ?>"
+                                alt="Profile" class="rounded-circle">
                             <h2><?php echo $date_one_element['prenom']; ?> <?php echo $date_one_element['nom']; ?> </h2>
 
                             <div class="social-links mt-2">
@@ -27,7 +28,7 @@
                                 </tr>
                                 <td class='fw-bold'>Téléphone:</td>
                                 <td><?php echo $date_one_element['telephone'];
-                                    echo $date_one_details['tel_2']; ?></td>
+                                    // echo $date_one_details['tel_2']; ?></td>
                                 </tr>
                                 </tr>
                                 <td class='fw-bold'>Adresse:</td>
@@ -48,7 +49,8 @@
                                     <ul class="nav nav-tabs nav-tabs-bordered">
 
                                         <li class="nav-item">
-                                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Langues</button>
+                                            <button class="nav-link active" data-bs-toggle="tab"
+                                                data-bs-target="#profile-overview">Langues</button>
                                         </li>
 
                                     </ul>
@@ -67,16 +69,16 @@
                                                 //   if($site_name == $value->id_source || $site_name=='ANSD')
                                                 //  {
                                             ?>
-                                                <tr>
-                                                    <td><?php echo $value->the_label; ?></td>
-                                                    <td><?php echo $value->niveau; ?></td>
-                                                    <td><?php
+                                            <tr>
+                                                <td><?php echo $value->the_label; ?></td>
+                                                <td><?php echo $value->niveau; ?></td>
+                                                <td><?php
                                                         echo $value->_lu . '  ';
                                                         echo $value->_parle . '  ';
                                                         echo $value->_ecrit . '  ';
                                                         ?></td>
 
-                                                    <!--td>
+                                                <!--td>
                                                     <a href="<?php //echo site_url('params-details-collectes/' . $value->id);  
                                                                 ?>" class='on-default btn_edit' id='<?php echo $value->id; ?>'>
                                                         <?php //show_state_color($value->statut); 
@@ -84,7 +86,7 @@
                                                     </a>
                                                 </td-->
 
-                                                </tr>
+                                            </tr>
                                             <?php
                                             }
 
@@ -110,7 +112,8 @@
                             <ul class="nav nav-tabs nav-tabs-bordered">
 
                                 <li class="nav-item">
-                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Expériences</button>
+                                    <button class="nav-link active" data-bs-toggle="tab"
+                                        data-bs-target="#profile-overview">Expériences</button>
                                 </li>
 
                             </ul>
@@ -134,10 +137,10 @@
                                                 //   if($site_name == $value->id_source || $site_name=='ANSD')
                                                 //  {
                                             ?>
-                                                <tr>
-                                                    <td><?php echo $value->_type_exp; ?> &nbsp;&nbsp;</td>
-                                                    <td><?php echo $value->libelle; ?></td>
-                                                    <td><?php
+                                            <tr>
+                                                <td><?php echo $value->_type_exp; ?> &nbsp;&nbsp;</td>
+                                                <td><?php echo $value->libelle; ?></td>
+                                                <td><?php
                                                         if (empty($value->date_debut) && empty($value->date_fin)) {
                                                             echo "Non renseignée";
                                                         } else {
@@ -147,40 +150,50 @@
                                                         }
 
                                                         ?></td>
-                                                    <td><?php echo $value->entreprise_lieu; ?> </td>
-                                                    <td>
+                                                <td><?php echo $value->entreprise_lieu; ?> </td>
+                                                <td>
 
-                                                        <?php
+                                                    <?php
 
                                                         if (!empty($value->image)) {
                                                             $image = $value->image;
                                                             $extension = pathinfo($image, PATHINFO_EXTENSION);
                                                             switch ($extension) {
                                                                 case "jpg": ?>
-                                                                    <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>" width="300" height="200">
+                                                    <img id="myImage"
+                                                        src="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>"
+                                                        width="300" height="200">
 
-                                                                <?php break;
+                                                    <?php break;
                                                                 case "jpeg": ?>
-                                                                    <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>" width="300" height="200">
+                                                    <img id="myImage"
+                                                        src="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>"
+                                                        width="300" height="200">
 
-                                                                <?php break;
+                                                    <?php break;
                                                                 case "png": ?>
-                                                                    <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>" width="300" height="200">
+                                                    <img id="myImage"
+                                                        src="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>"
+                                                        width="300" height="200">
 
-                                                                <?php break;
+                                                    <?php break;
                                                                 case "docx": ?>
-                                                                    <a download="mon_diplome.docx" href="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>">Récupérer le diplome </a>
+                                                    <a download="mon_diplome.docx"
+                                                        href="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>">Récupérer
+                                                        le diplome </a>
 
-                                                                <?php break;
+                                                    <?php break;
                                                                 case "pdf": ?>
-                                                                    <iframe frameborder="0" src="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>" width="300" height="200"></iframe>
+                                                    <iframe frameborder="0"
+                                                        src="<?php echo base_url('j0kimpl8ldq/experiences/' . $value->image); ?>"
+                                                        width="300" height="200"></iframe>
 
-                                                            <?php
+                                                    <?php
                                                             }
                                                         } 
                                                         ?>
-                                                    </td>
-                                                </tr>
+                                                </td>
+                                            </tr>
                                             <?php
                                             }
 
@@ -205,12 +218,32 @@
                             <ul class="nav nav-tabs nav-tabs-bordered">
 
                                 <li class="nav-item">
-                                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Diplomes</button>
+                                    <button class="nav-link active" data-bs-toggle="tab"
+                                        data-bs-target="#profile-overview">Diplomes & bulletin</button>
                                 </li>
 
                             </ul>
                             <div class="tab-content pt-2">
+                                <!-- Modal {BJ} -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog  modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <div>
+                                                    <img id="myImg" style="display: none;"
+                                                        src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>"
+                                                        width="100%" height="500">
 
+                                                    <iframe id="myIframe" frameborder="0" width="100%" height="500"
+                                                        style="display: none;"
+                                                        src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>"></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 <div class="tab-pane fade profile-overview active show" id="profile-overview">
                                     <table id='datatable-buttons' class='table table-striped table-bordered'>
                                         <thead>
@@ -230,44 +263,61 @@
                                                 //   if($site_name == $value->id_source || $site_name=='ANSD')
                                                 //  {
                                             ?>
-                                                <tr>
-                                                    <td><?php echo $value->_type_diplome; ?></td>
-                                                    <td><?php echo $value->libelle; ?></td>
-                                                    <td><?php echo $value->annee_obtention; ?></td>
-                                                    <td><?php echo $value->lieu_obtention; ?></td>
-                                                    <td>
 
-<?php
+                                            <tr>
+                                                <td><?php echo $value->_type_diplome; ?></td>
+                                                <td><?php echo $value->libelle; ?></td>
+                                                <td><?php echo $value->annee_obtention; ?></td>
+                                                <td><?php echo $value->lieu_obtention; ?></td>
+                                                <td>
+
+                                                    <?php
 
 if (!empty($value->image)) {
     $image = $value->image;
     $extension = pathinfo($image, PATHINFO_EXTENSION);
     switch ($extension) {
         case "jpg": ?>
-            <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>" width="300" height="200">
+                                                    <img id="myImage" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>"
+                                                        width="250" height="200"
+                                                        onmouseenter="showFile('<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>', 'jpg')">
 
-        <?php break;
+                                                    <?php break;
         case "jpeg": ?>
-            <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>" width="300" height="200">
+                                                    <img id="myImage" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>"
+                                                        width="250" height="200"
+                                                        onmouseenter="showFile('<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>', 'jpeg')">
 
-        <?php break;
+                                                    <?php break;
         case "png": ?>
-            <img id="myImage" src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>" width="300" height="200">
+                                                    <img id="myImage"  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>"
+                                                        width="250" height="200"
+                                                        onmouseenter="showFile('<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>', 'png')">
 
-        <?php break;
+                                                    <?php break;
         case "docx": ?>
-            <a download="mon_diplome.docx" href="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>">Récupérer le diplome </a>
+                                                    <a download="mon_diplome.docx" class=" btn btn-outline-primary" 
+                                                        href="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>">Récupérer
+                                                        le diplome </a>
 
-        <?php break;
+                                                    <?php break;
         case "pdf": ?>
-            <iframe frameborder="0" width="300" height="300" src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>" width="300" height="200"></iframe>
-
-    <?php
+                                                    <!-- <iframe frameborder="0" width="250" height="300" id="myImag"
+                                                        src="<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>"
+                                                        width="300" height="200"
+                                                        onmouseenter="showFile('<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>', 'pdf')"></iframe> -->
+                                                    <button type="button" class=" btn btn-outline-primary btn-sm"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        onmouseenter="showFile('<?php echo base_url('j0kimpl8ldq/diplomes/' . $value->image); ?>', 'pdf')">voir</button>
+                                                    <?php
     }
 } 
 ?>
-</td>
-                                                </tr>
+                                                </td>
+                                            </tr>
                                             <?php
                                             }
 
@@ -284,32 +334,224 @@ if (!empty($value->image)) {
 
                         </div>
                     </div>
+                        <!-- autre piece -->
+
+                        <?php if (!empty($all_data_autre_piece)) { ?>
+                        <div class="col-12" style="margin-bottom: 20px;">
+                            <div class="card mt-3">
+                                <div class="card-body pt-3">
+                                    <!-- Bordered Tabs -->
+                                    <ul class="nav nav-tabs nav-tabs-bordered">
+
+                                        <li class="nav-item">
+                                            <button class="nav-link active" data-bs-toggle="tab"
+                                                data-bs-target="#profile-overview">Autre Piece</button>
+                                        </li>
+
+                                    </ul>
+                                    <div class="tab-content pt-2">
+                                        <!-- Modal {BJ} -->
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog  modal-xl">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div>
+                                                            <img id="myImg1" style="display: none;"
+                                                                src="<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>"
+                                                                width="100%" height="500">
+
+                                                            <iframe id="myIframe1" frameborder="0" width="100%"
+                                                                height="500" style="display: none;"
+                                                                src="<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>"></iframe>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane fade profile-overview active show" id="profile-overview">
+                                            <table id='datatable-buttons' class='table table-striped table-bordered'>
+                                                <thead>
+                                                    <tr>
+                                                        <!-- <th>Type</th> -->
+                                                        <th>Libelle</th>
+                                                        <th>Année obtention</th>
+                                                        <th>Lieu obtention</th>
+                                                        <th>Fichier</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+
+                                            foreach ($all_data_autre_piece as $value) {
+                                                //   if($site_name == $value->id_source || $site_name=='ANSD')
+                                                //  {
+                                            ?>
+
+                                                    <tr>
+                                                        <!-- <td><?php echo $value->_type_diplome; ?></td> -->
+                                                        <td><?php echo $value->libelle; ?></td>
+                                                        <td><?php echo $value->annee_obtention; ?></td>
+                                                        <td><?php echo $value->lieu_obtention; ?></td>
+                                                        <td>
+
+                                                            <?php
+
+if (!empty($value->image)) {
+    $image = $value->image;
+    $extension = pathinfo($image, PATHINFO_EXTENSION);
+    switch ($extension) {
+        case "jpg": ?>
+                                                            <img id="myImage" data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal1"
+                                                                src="<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>"
+                                                                width="250" height="200"
+                                                                onmouseenter="showFile1('<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>', 'jpg')">
+
+                                                            <?php break;
+        case "jpeg": ?>
+                                                            <img id="myImage" data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal1"
+                                                                src="<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>"
+                                                                width="250" height="200"
+                                                                onmouseenter="showFile1('<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>', 'jpeg')">
+
+                                                            <?php break;
+        case "png": ?>
+                                                            <img id="myImage" data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal1"
+                                                                src="<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>"
+                                                                width="250" height="200"
+                                                                onmouseenter="showFile1('<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>', 'png')">
+
+                                                            <?php break;
+        case "docx": ?>
+                                                            <a download="mon_diplome.docx"
+                                                                class=" btn btn-outline-primary"
+                                                                href="<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>">Récupérer
+                                                                le diplome </a>
+
+                                                            <?php break;
+        case "pdf": ?>
+                                                            <!-- <iframe frameborder="0" width="250" height="300" id="myImag"
+                                                        src="<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>"
+                                                        width="300" height="200"
+                                                        onmouseenter="showFile('<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>', 'pdf')"></iframe> -->
+                                                            <button type="button"
+                                                                class=" btn btn-outline-primary btn-sm"
+                                                                data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                                                                onmouseenter="showFile1('<?php echo base_url('j0kimpl8ldq/autre_piece/' . $value->image); ?>', 'pdf')">voir</button>
+                                                            <?php
+    }
+} 
+?>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                            }
+
+
+                                            //  }
+                                            ?>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
+
+                                    </div><!-- End Bordered Tabs -->
+
+                                    <?php } ?>
+
+                               
+                         
+                    </div>
                 </div>
+
+
+
+
+
+
             </div>
-        </div>
-
-
-
-
-
-
-    </div>
 </section>
 
 </main>
 
 
 <script>
-    window.onload = function() {
-        // Get a reference to the image element
-        var img = document.getElementById("myImage");
+function showFile(file, elm) {
+    console.log(file);
+    switch (elm) {
+        case "jpg":
+            $('#myIframe').hide();
+            $('#myImg').show();
+            $('#myImg').attr('src', file);
+            break;
+        case "jpeg":
+            $('#myIframe').hide();
+            $('#myImg').show();
+            $('#myImg').attr('src', file);
+            break;
+        case "png":
+            $('#myIframe').hide();
+            $('#myImg').show();
+            $('#myImg').attr('src', file);
+            break;
+        case "pdf":
+            $('#myImg').hide();
+            $('#myIframe').show();
+            $('#myIframe').attr('src', file);
+            break;
+    }
+}
 
-        // Define the new width and height
-        var newWidth = 200; // Change this to the desired width
-        var newHeight = 200; // Change this to the desired height
 
-        // Set the new width and height
-        img.width = newWidth;
-        img.height = newHeight;
-    };
+
+function showFile1(file, elm) {
+    console.log(elm);
+    switch (elm) {
+        case "jpg":
+            $('#myIframe1').hide();
+            $('#myImg1').show();
+            $('#myImg1').attr('src', file);
+            break;
+        case "jpeg":
+            $('#myIframe1').hide();
+            $('#myImg1').show();
+            $('#myImg1').attr('src', file);
+            break;
+        case "png":
+            $('#myIframe1').hide();
+            $('#myImg1').show();
+            $('#myImg1').attr('src', file);
+            break;
+        case "pdf":
+            $('#myImg1').hide();
+            $('#myIframe1').show();
+            $('#myIframe1').attr('src', file);
+            break;
+    }
+}
+
+// $(document).ready(function() {
+//     //pour le modal
+//     $("#myImage").click(function() {
+//         $("#exampleModal").modal('show');
+//     });
+// });
+window.onload = function() {
+    // Get a reference to the image element
+    var img = document.getElementById("myImage");
+
+    // Define the new width and height
+    var newWidth = 200; // Change this to the desired width
+    var newHeight = 200; // Change this to the desired height
+
+    // Set the new width and height
+    img.width = newWidth;
+    img.height = newHeight;
+};
 </script>

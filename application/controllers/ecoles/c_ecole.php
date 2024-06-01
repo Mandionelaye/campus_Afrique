@@ -6,6 +6,10 @@ class C_ecole extends MY_Controller
 		//CONSTRUCTEUR
 		parent::__construct();
 		$this->load->model("ecoles/M_ecole");
+		$this->load->model('Global_bdd', 'gl_bdd');  //une classe globale regroupant bcp de méthodes
+
+		$this->load->helper('djitte'); //pour la gestion des droits
+
 		$this->nom_elt 		= 'Etablissement'; 
 		$this->link_list 	= 'liste-Etablissement';  
 		$this->url_img = 'j0kimpl8ldq/logo/';
@@ -227,7 +231,59 @@ class C_ecole extends MY_Controller
 		}
 
 	}
+
+		////////////show details dans le CRUD courant
+		function show_one_elt()
+		{
+			$args 					= func_get_args();
+			$code_elt 				= $args[0];
+			$data['code_elt']		= $code_elt;
 	
+			$data['rdc2_rights'] 	= rdc2_get_auth('params'); //retourne Array ( [add] => [update] => [delete] => [read] => 1 ) 
+				//permet de voir si ce profil connecté est autorisé à supprimer des données
+			
+			$curr_profil 			= strtolower($this->session->can8_g1qsu_30q9o['profil']) ;
+			if($curr_profil ==  'agent saisie bec')
+				$data['is_auth_validate'] 	= '0';
+			else		
+				$data['is_auth_validate'] 	= '1';
+	
+	
+			$data['title'] 					= "Détails sur le " . $this->nom_elt; //qui ser affiché sur la fiche
+			$data['date_one_element']		= $this->M_ecole->get_on_ecole($code_elt);
+	
+			//$id_site 						=  $data['date_one_element']['id_source'];
+			//$data['date_one_element_val']	= $this->m_modele->get_data_entry_one_elt($code_elt, $id_site, $mois, $annee);
+			$data['breadcrumbs']	= array($this->link_list, $this->nom_elt, $data['title']);
+			$data['contents']		= 'v_bo_ecole/v_ecole_show';
+			$this->load->view('template/layout', $data);
+		} //end on function
+	
+
+			////////////pour la suppression
+	function confirm_delete_one_elt()
+	{	
+		$data['title'] 					= "Supprimer le " . $this->nom_elt; //qui ser affiché sur la fiche
+		$data['breadcrumbs']	= array($this->link_list, $this->nom_elt, $data['title']);
+
+		$args 					= func_get_args();
+		$code_elt 				= $args[0];
+		$data['code_elt']		= $code_elt;
+		$data['contents']		= 'v_bo_ecole/v_ecole_confirm_delete';
+		$this->load->view('template/layout', $data);
+	} //end on function
+
+	
+	function delete_one_elt()
+	{ 
+		$args 					= func_get_args();
+		$code_elt 				= $args[0];
+		$this->db->where('id', $code_elt);
+		$this->db->delete('ecole');
+
+		redirect('liste-Etablissement');
+	} //end on function
+
 	// pour modifier un mots de passe
 	
 	function edit_ecole_mdp(){
