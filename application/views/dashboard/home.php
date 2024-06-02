@@ -29,8 +29,8 @@
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php echo $all_offre ?></h6>
-                      <span class="text-success small pt-1 fw-bold"><?php  echo $all_offre ?> actives </span> </span>
+                      <h6><?php echo $act_collectesOff ?></h6>
+                      <span class="text-success small pt-1 fw-bold"><?php  echo $act_collectesOff ?> actives </span> </span>
 
                     </div>
                   </div>
@@ -50,8 +50,8 @@
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php  echo $all_candidature ?></h6>
-                      <span class="text-success small pt-1 fw-bold"><?php  echo $all_candidature ?></span> <span class="text-muted small pt-2 ps-1">en cours</span>
+                      <h6><?php  echo $act_collectes ?></h6>
+                      <span class="text-success small pt-1 fw-bold"><?php  echo $act_collectes ?></span> <span class="text-muted small pt-2 ps-1">en cours</span>
 
                     </div>
                   </div>

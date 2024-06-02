@@ -29,6 +29,8 @@ class Accueil extends MY_Controller {
 	public function home()
 	{	
 		$curr_profil = strtolower($this->session->can8_g1qsu_30q9o['profil']) ;
+		$id = $this->session->can8_g1qsu_30q9o['id'];
+		$profil = $this->session->can8_g1qsu_30q9o['profil'];
 		//liste des congés à venir
 		$data['stat_glob_acc']	= $this->m_modele->get_global_stat();
 		//demba_debug($this->session->can8_g1qsu_30q9o['profil']);
@@ -46,12 +48,16 @@ class Accueil extends MY_Controller {
 		}
 		else
 		{
-			$cont =	$this->m_modele->get_all_Candidature();
-			$contOff =	$this->m_modele->get_all_Offres();
-			$data['act_collectes'] = count( $cont);
-			$data['act_collectesOff'] = count( $contOff);
-			///getting the historic
-			//$data['histo']	= $this->m_modele->get_data_histo();
+			$cont =	$this->m_modele->get_all_Candidature($id, $profil);
+			$contOff =	$this->m_modele->get_all_Offres($id, $profil);
+		    //  if (!empty($contOff) && !empty($cont)){
+				 $data['act_collectes'] = count( $cont);
+				 $data['act_collectesOff'] = count( $contOff);
+				
+
+				// var_dump($data['act_collectes']);
+			// /getting the historic
+			// $data['histo']	= $this->m_modele->get_data_histo();
 			$data['contents']	= 'dashboard/home';
 		}	
 		$this->load->view('template/layout',$data);

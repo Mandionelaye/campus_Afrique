@@ -37,15 +37,51 @@ class M_home_back extends CI_Model {
 		}
 
 		// pour recupere touts les candidatires
-		public function get_all_Candidature(){
-			$query = $this->db->get('c_candidatures');
-			return $query->result_array();
+		public function get_all_Candidature($idEcole, $profil){
+			if($profil !== 'responsable_filiere'){
+					return $this->db->select("
+					c.*
+				")
+				->from('c_candidatures c')
+				->join('c_offres AS o', 'o.id=c.id_offre', 'INNER')
+				->where('o.idEcole',$idEcole)
+				->get()
+				->result();
+			}else {
+
+				return $this->db->select("
+				c.*
+			")
+			->from('c_candidatures c')
+			//  ->join('c_offres AS o', 'o.id=c.id_offre', 'INNER')
+			 ->join('responsable_filiere AS r', "r.idOffre = c.id_offre", 'INNER')
+			->where('r.id',$idEcole)
+			->get()
+			->result();
+			}
+			// $query = $this->db->get('c_candidatures');
+			// return $query->result_array();
 		}
 
 			// pour recupere touts les offres pédagogique
-			public function get_all_Offres(){
-				$query = $this->db->get('c_offres');
-				return $query->result_array();
+			public function get_all_Offres($idEcole, $profil){
+				if($profil !== 'responsable_filiere'){
+				 $this->db->where('idEcole',$idEcole);
+				 $query = $this->db->get('c_offres');
+				 return $query->result_array();
+				}else{
+					return $this->db->select("
+					o.*
+				")
+				->from('c_offres o')
+				// ->join('c_offres AS o', 'o.id=c.id_offre', 'INNER')
+				->join('responsable_filiere AS r', "r.idOffre = o.id", 'INNER')
+				->where('r.id',$idEcole)
+				->get()
+				->result();
+				}
+				
+
 			}
 	//stats dashboard
 	public function get_stat_state_agents() 
