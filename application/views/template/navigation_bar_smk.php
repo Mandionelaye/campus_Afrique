@@ -66,7 +66,15 @@ $smenu_roles = $this->session->smenu_roles;
 
   /* Style for active link */
   .smk a.active {
-    background-color: #8ed8e5;
+
+    border: none;
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+        background: #283c86;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #45a247, #283c86);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #45a247, #283c86);
+    /* background-color: #8ed8e5; */
     /* Change this to your desired background color */
     color: #fff;
     /* Change this to your desired text color */

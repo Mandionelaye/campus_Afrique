@@ -176,12 +176,14 @@
   color:#012970;
 }
 #pied-de-page {
-  bottom: 0;
-  width: 100%;
-  position: fixed;
-  height: 3.5rem; 
-  background-color:#012970;
-  color:white;           /* Hauteur du pied-de-page */
+  border: none;
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.075) inset, 0 0 0px rgba(126, 239, 104, 0.6);
+        outline: 0 none;
+
+        border-bottom: 2px solid #0062cc;
+
+        background: #E4E5E6;
+        color: #00416A;        /* Hauteur du pied-de-page */
 }
 </style>
 

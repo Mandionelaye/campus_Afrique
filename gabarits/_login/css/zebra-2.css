@@ -1,0 +1,121 @@
+.Zebra_Form .row {
+
+  border:0;
+    background: #FFF;
+    padding: 0;
+    margin-bottom: 1px;
+    line-height: 1.4em /* line height is there to space things nicely but also to avoid the peek-a-boo bug in IE6 read more at http://www.dracos.co.uk/code/ie6-css-bug/ */;
+}
+
+
+
+
+.Zebra_Form .button, .Zebra_Form .reset, .Zebra_Form .submit, .Zebra_Form label.button {
+    padding: 10px 20px;
+    background: #1976d2 ;
+    color:#fff;
+    cursor: pointer;
+    
+    overflow: visible;
+    width: 100%;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+  
+    margin-bottom:30px;
+    border:0px;
+}
+
+.input-group-addon , .input-group-text{
+    padding: 0px;
+    padding-left:-24px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: transparent;
+    border-bottom: 2px solid #1976d2;
+    border-radius: 0px;
+    border-right:0px;
+    border-top:0px;
+    border-left:0px;
+    /*border-bottom:2px solid #aa0000;*/
+    text-align:center;
+}
+
+.Zebra_Form .highlight {
+    background: transparent;
+}
+
+.Zebra_Form input.password,
+.Zebra_Form input.text,.Zebra_Form select.text,
+.Zebra_Form textarea {
+  border-radius:0;
+  border-style: solid;
+  border-width:2px;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  height: 34px;
+  font-size: 14px;
+  border-bottom-color: #1976d2;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  transition: all 0.2s ease-in-out;
+  background:transparent;
+}
+
+.Zebra_Form input.password,
+.Zebra_Form input.text,.Zebra_Form select.text,
+.Zebra_Form textarea:hover {
+  border-bottom-color: #1976d2;
+  transition: all 0.2s ease-in-out;
+}
+.Zebra_Form input.password,
+.Zebra_Form input.text,.Zebra_Form select.text,
+.Zebra_Form textarea:focus {
+  border-bottom-color: #1976d2;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+.more {
+  color: #1976d2;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding-top: 45px;
+  display: inline-block;
+}
+.next {
+  background-color: #1976d2;
+  width: 70px;
+  color: #fff;
+  display: inline-block;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 100px;
+  border-radius: 2px;
+}
+.logo {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+}
+.google {
+  width: 70px;
+  padding-bottom: 10px;
+  margin-left: 100px;
+}
+a {
+  text-decoration: none;
+}
+.notif {
+  width: calc(100% - 60px);
+  height: 50px;
+  color: #666;
+  font-size: 12px;
+  margin-top: 100px;
+  text-align: center;
+}

@@ -23,7 +23,7 @@ class C_connexion_ecole extends CI_Controller {
 	if (!empty($this->session->userdata['samay_mbiir']['can8_g1qsu_30q9o']['_the_name'])) {
 		redirect("");
 	}
-	$data['contents']		= 'dashboard/connexion';
-	$this->load->view('template/layout_auth', $data);
+	// $data['contents']		= 'dashboard/connexion';
+	$this->load->view('dashboard/connexion', $data);
 	}
 }
